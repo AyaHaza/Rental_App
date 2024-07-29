@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rental_app/core/resources/color.dart';
 import 'config/responsive_init_point/responsive.dart';
+import 'core/widgets_App/drawer_widget.dart';
 
 void main() {
 
@@ -24,19 +26,23 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: white,
+      
+      appBar: (isMobail)?AppBar(backgroundColor: white,):PreferredSize(preferredSize: Size(0, 0),
+      child:SizedBox(),),
+      drawer: DrawerCustom("Nate Samson","nate@email.con",(){},(){},(){},(){},(){},(){},(){}),
       body: Row(
         children: [
           if(isWeb)
             Container(
-              color: Colors.orangeAccent,
               width: 200,
-              child: Center(child: Text("drawer web"),),
+              child:  DrawerCustom("Nate Samson","nate@email.con",(){},(){},(){},(){},(){},(){},(){}),
             ),
-          Center(
-            child: Text(
-              "$screenHight, ,  $screenWidth"
-            ),
-          ),
+          // Center(
+          //   child: Text(
+          //     "$screenHight, ,  $screenWidth"
+          //   ),
+          // ),
         ],
       ),
     );

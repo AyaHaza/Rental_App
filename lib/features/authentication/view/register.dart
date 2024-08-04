@@ -52,7 +52,7 @@ class _RegisterState extends State<Register> {
                     padding:  firstPadding,
                     child: Row(
                       children: [
-                        IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back_ios)),
+                        IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(Icons.arrow_back_ios)),
                         const Text(back)
                       ],
                     ),

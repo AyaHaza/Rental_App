@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../features/authentication/view/login.dart';
 import '../features/authentication/view/register.dart';
 import '../features/authentication/view/set_password.dart';
+import '../features/authentication/view/welcome.dart';
 import '../features/home.dart';
 
 
@@ -30,6 +31,8 @@ class AppRoutes {
       case '/HomeScreen':
         return _materialRoute(settings,HomeScreen());
 
+      case '/Welcome':
+        return _materialRoute(settings,Welcome());
 
       default:
         return _materialRoute( settings,Register());

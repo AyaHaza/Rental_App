@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'config/bloc_observe.dart';
+import 'features/authentication/view/welcome.dart';
 import 'features/home.dart';
 import 'config/hive_config.dart';
 import 'config/responsive.dart';
 import 'config/routes.dart';
-import 'features/authentication/view/register.dart';
 import 'firebase_options.dart';
 
 void main()async {
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRoutes.onGenerateRoutes,
       title: 'Rental App',
-      home: (userHive!.get("token")==null || userHive!.get("token")=='')?Register() : HomeScreen(),
+      home: (userHive!.get("token")==null || userHive!.get("token")=='')?Welcome() : HomeScreen(),
     );
   }
 }

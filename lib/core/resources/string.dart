@@ -1,5 +1,9 @@
 
 //auth
+const String welcome='Welcome';
+const String haveABetterSharingExperience='Have a better sharing experience';
+const String createAnAccount='Create an account';
+const String login='Log In';
 const String back='Back';
 const String signUpWithEmailOrPhoneNumber='Sign up with your email or \nphone number';
 const String firstName='first name';

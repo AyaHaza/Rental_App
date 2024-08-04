@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rental_app/config/hive_config.dart';
+import 'package:rental_app/features/authentication/view/register.dart';
 import '../resources/assets.dart';
 import '../resources/color.dart';
 import '../resources/string.dart';
@@ -7,7 +9,8 @@ import '../resources/string.dart';
 Widget DrawerCustom(
     String nameUser,
     String emailUser,
-    void Function()? historyOnTap,
+ImageProvider<Object> image,
+void Function()? historyOnTap,
     void Function()? complainOnTap,
     void Function()? referralOnTap,
     void Function()? aboutOnTap,
@@ -38,9 +41,11 @@ Widget DrawerCustom(
               decoration: const BoxDecoration(
                   shape: BoxShape.circle, color: lightGreen),
               child: Container(
-                decoration: const BoxDecoration(
+                decoration:  BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(boyImage),
+                    //imageUser
+                    // image: AssetImage(boyImage),
+                    image:image,
                     fit: BoxFit.fill,
                   ),
                   shape: BoxShape.circle,

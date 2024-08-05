@@ -7,15 +7,19 @@ Widget ButtonCustom(
     double? height,
     Widget? widget,
     Color? backgroundColor,
-    Color? borderSideColor,
+    Color sideColor,
+    
+    //Color? borderSideColor,
     Function()? function) {
   return ElevatedButton(
     onPressed: function,
     style: ElevatedButton.styleFrom(
+      side: BorderSide(color: sideColor),
       fixedSize: Size(width!, height!),
       elevation: elevated,
       backgroundColor: backgroundColor,
       shape: RoundedRectangleBorder(
+
         borderRadius: BorderRadius.circular(8),
         side: BorderSide(color: borderSideColor!,width: 0.6 )
       ),

@@ -5,6 +5,11 @@ import '../resources/color.dart';
 
 // ignore: non_constant_identifier_names
 Widget TextFieldCustom(
+  void Function()? function,
+  Color textFiedColor,
+  Color borderColor,
+  Widget preffixIcon,
+  Widget? suffixIcon,
   Color? textFiedColor,
   Widget suffixIcon,
   Widget prefixIcon,
@@ -17,6 +22,7 @@ Widget TextFieldCustom(
   bool obscureText
   ) {
   return TextFormField(
+    onTap: function,
     obscureText: obscureText,
     validator: (value) {
       if (value == null || value.isEmpty) {
@@ -30,6 +36,14 @@ Widget TextFieldCustom(
     onTap:ontap,
     onFieldSubmitted: onSubmit,
     decoration: InputDecoration(
+      filled: true,
+      fillColor: textFiedColor,
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: borderColor, width: 1),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      hintText: hintText,
+      prefixIcon: preffixIcon,
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(6),
         borderSide:  BorderSide(color: subtitleColor,width: 0.6)

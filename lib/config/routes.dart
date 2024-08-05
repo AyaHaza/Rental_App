@@ -3,14 +3,15 @@ import '../features/authentication/view/login.dart';
 import '../features/authentication/view/register.dart';
 import '../features/authentication/view/set_password.dart';
 import '../features/authentication/view/welcome.dart';
-import '../features/home.dart';
+import '../features/map/view/map.dart';
+import '../features/onBording/view/onBording.dart';
 
 
 class AppRoutes {
   static Route onGenerateRoutes(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return _materialRoute(settings, Register());
+        return _materialRoute(settings, OnBording());
 
       case '/Register':
         return _materialRoute(settings,Register());
@@ -28,14 +29,14 @@ class AppRoutes {
       case '/Login':
         return _materialRoute(settings,Login());
 
-      case '/HomeScreen':
-        return _materialRoute(settings,HomeScreen());
-
       case '/Welcome':
         return _materialRoute(settings,Welcome());
 
+      case '/MapScreen':
+      return _materialRoute(settings,MapScreen());
+
       default:
-        return _materialRoute( settings,Register());
+        return _materialRoute( settings,OnBording());
     }
   }
 

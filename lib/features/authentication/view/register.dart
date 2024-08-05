@@ -49,7 +49,7 @@ class _RegisterState extends State<Register> {
               child: ListView(
                 children: [
                   Padding(
-                    padding:  firstPadding,
+                    padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
                     child: Row(
                       children: [
                         IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(Icons.arrow_back_ios)),
@@ -58,20 +58,20 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                   Padding(
-                    padding: secondPadding,
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
                     child: const Text(signUpWithEmailOrPhoneNumber,style: TextStyle(fontSize:32 ,fontWeight: FontWeight.w500),),
                   ),
                   Padding(
-                    padding:  firstPadding,
-                    child: TextFieldCustom(darkGreenColor, const SizedBox(),const SizedBox(), firstName, fitrstNameController, TextInputType.name, 1,(v){},(){},false),
+                    padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
+                    child: TextFieldCustom(white, const SizedBox(),const SizedBox(), firstName, fitrstNameController, TextInputType.name, 1,(v){},(){},false),
                   ),
                   Padding(
-                    padding: secondPadding,
-                    child: TextFieldCustom(darkGreenColor, const SizedBox(),const SizedBox(), lastName, lastNameController, TextInputType.emailAddress, 1,(v){},(){},false),
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
+                    child: TextFieldCustom(white, const SizedBox(),const SizedBox(), lastName, lastNameController, TextInputType.emailAddress, 1,(v){},(){},false),
                   ),
                   Padding(
-                    padding:  secondPadding,
-                    child: TextFieldCustom(darkGreenColor, const SizedBox(),InkWell(child: Container(width: 108,alignment: Alignment.center,child: Row(
+                    padding:  leftAndRightAndTBottomPadding(0.02,0.02,0.02),
+                    child: TextFieldCustom(white, const SizedBox(),InkWell(child: Container(width: 108,alignment: Alignment.center,child: Row(
                       children: [
                         Text('    ${country.flagEmoji}'),
                         const Icon(Icons.keyboard_arrow_down_outlined),
@@ -87,12 +87,12 @@ class _RegisterState extends State<Register> {
                     },(){},false),
                   ),
                   Padding(
-                    padding: secondPadding,
-                    child: TextFieldCustom(darkGreenColor, const SizedBox(),const SizedBox(), username, userNameController, TextInputType.name, 1,(v){},(){},false),
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
+                    child: TextFieldCustom(white, const SizedBox(),const SizedBox(), username, userNameController, TextInputType.name, 1,(v){},(){},false),
                   ),
                   Padding(
-                    padding: secondPadding,
-                    child: TextFieldCustom(darkGreenColor, const SizedBox(),const SizedBox(), birthDate, birthDateeController, TextInputType.name, 1,(v){},()async{
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
+                    child: TextFieldCustom(white, const SizedBox(),const SizedBox(), birthDate, birthDateeController, TextInputType.name, 1,(v){},()async{
                       FocusScope.of(context).requestFocus(FocusNode());
                       final datePick = await showDatePicker(
                         context: context,
@@ -129,7 +129,7 @@ class _RegisterState extends State<Register> {
                     },false),
                   ),
                   Padding(
-                    padding:  secondPadding,
+                    padding:  leftAndRightAndTBottomPadding(0.02,0.02,0.02),
                     child: const Row(
                       children: [
                         Padding(
@@ -144,7 +144,7 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                   Padding(
-                    padding: secondPadding,
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
                     child: ButtonCustom(0,0, screenHight*0.06, const Text(signUp,style: TextStyle(color: white,fontSize: 18),), darkGreenColor, darkGreenColor, (){
                       if (!formKey.currentState!.validate()) {
                         return;
@@ -160,7 +160,7 @@ class _RegisterState extends State<Register> {
                     }),
                   ),
                   Padding(
-                    padding: fourthPadding,
+                    padding: leftAndRightPadding(0.02,0.2),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 10.0),
                       child: Row(
@@ -173,7 +173,7 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                   Padding(
-                    padding: firstPadding,
+                    padding: leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
                     child: ButtonCustom(0,0, screenHight*0.06,  BlocBuilder<AuthBloc,AuthStates>(
                       builder:(context, state) {
                         if(state is InitialState){
@@ -190,7 +190,7 @@ class _RegisterState extends State<Register> {
                           return  Text(state.failure,style: TextStyle(fontSize: 30,color: darkRedColor),);
                         }else if(state is SuccessState){
                           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                            Navigator.pushNamed(context, '/HomeScreen');
+                            Navigator.pushNamed(context, '/MapScreen');
                             QuickAlert.show(
                               context: context,
                               type: QuickAlertType.success,
@@ -212,7 +212,7 @@ class _RegisterState extends State<Register> {
                     }),
                   ),
                   Padding(
-                    padding: secondPadding,
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
                     child: ButtonCustom(0,0, screenHight*0.06,const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -224,7 +224,7 @@ class _RegisterState extends State<Register> {
                     }),
                   ),
                   Padding(
-                    padding: secondPadding,
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

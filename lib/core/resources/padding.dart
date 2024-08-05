@@ -2,8 +2,64 @@
 import 'package:flutter/material.dart';
 import '../../config/responsive.dart';
 
-EdgeInsetsGeometry  firstPadding=EdgeInsets.symmetric(vertical: screenHight*0.018,horizontal:screenWidth*0.02);
-EdgeInsetsGeometry  secondPadding=EdgeInsets.only(bottom: screenHight*0.02,left:screenWidth*0.02,right: screenWidth*0.02);
-EdgeInsetsGeometry  thirdPadding=EdgeInsets.only(top: screenHight*0.02,left:screenWidth*0.02,right: screenWidth*0.02);
-EdgeInsetsGeometry  fourthPadding=EdgeInsets.symmetric(horizontal:screenWidth*0.02);
-EdgeInsetsGeometry  bottomPadding=EdgeInsets.only(top: screenHight*0.04,left:screenWidth*0.02,right: screenWidth*0.02);
+EdgeInsetsGeometry onlyTopPadding(topPadding){
+  return EdgeInsets.only(top: screenHight*topPadding);
+}
+
+EdgeInsetsGeometry onlyBottomPadding(bottomPadding){
+  return EdgeInsets.only(bottom: screenHight*bottomPadding);
+}
+
+EdgeInsetsGeometry onlyLeftPadding(leftPadding){
+  return EdgeInsets.only(left: screenWidth*leftPadding);
+}
+
+EdgeInsetsGeometry onlyRightPadding(rightPadding){
+  return EdgeInsets.only(right: screenWidth*rightPadding);
+}
+
+EdgeInsetsGeometry leftAndRightPadding(leftPadding,rightPadding){
+  return EdgeInsets.only(left: screenWidth*leftPadding,right: screenWidth*rightPadding);
+}
+
+EdgeInsetsGeometry leftAndBottomPadding(leftPadding,bottomPadding){
+  return EdgeInsets.only(left: screenWidth*leftPadding,bottom: screenHight*bottomPadding);
+}
+
+EdgeInsetsGeometry leftAndTopPadding(leftPadding,topPadding){
+  return EdgeInsets.only(left: screenWidth*leftPadding,top: screenHight*topPadding);
+}
+
+EdgeInsetsGeometry leftAndRightAndTopPadding(leftPadding,rightPadding,topPadding){
+  return EdgeInsets.only(left: screenWidth*leftPadding,right: screenWidth*rightPadding,top: screenHight*topPadding);
+}
+
+EdgeInsetsGeometry leftAndRightAndTBottomPadding(leftPadding,rightPadding,bottomPadding){
+  return EdgeInsets.only(left: screenWidth*leftPadding,right: screenWidth*rightPadding,bottom: screenHight*bottomPadding);
+}
+
+EdgeInsetsGeometry leftAndTopAndTBottomPadding(leftPadding,topPadding,bottomPadding){
+  return EdgeInsets.only(left: screenWidth*leftPadding,top: screenHight*topPadding,bottom: screenHight*bottomPadding);
+}
+
+EdgeInsetsGeometry rightAndBottomPadding(rightPadding,bottomPadding){
+  return EdgeInsets.only(right: screenWidth*rightPadding,bottom: screenHight*bottomPadding);
+}
+
+EdgeInsetsGeometry rightAndTopPadding(rightPadding,topPadding){
+  return EdgeInsets.only(right: screenWidth*rightPadding,top: screenHight*topPadding);
+}
+
+EdgeInsetsGeometry rightAndTopAndTBottomPadding(rightPadding,topPadding,bottomPadding){
+  return EdgeInsets.only(right: screenWidth*rightPadding,top: screenHight*topPadding,bottom: screenHight*bottomPadding);
+}
+
+EdgeInsetsGeometry TopAndBottomPadding(topPadding,bottomPadding){
+  return EdgeInsets.only(top: screenHight*topPadding,bottom: screenHight*bottomPadding);
+}
+
+EdgeInsetsGeometry leftAndRightAndTopAndTBottomPadding(leftPadding,rightPadding,topPadding,bottomPadding){
+  return EdgeInsets.only(left: screenWidth*leftPadding,right: screenWidth*rightPadding,top: screenHight*topPadding,bottom: screenHight*bottomPadding);
+}
+
+

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../../config/responsive.dart';
 import '../../../core/resources/color.dart';
 
 class ButtomNavBar extends StatefulWidget {
@@ -21,14 +21,7 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.11,
-      decoration: const BoxDecoration(
-        color: white,
-        borderRadius: BorderRadius.only(
-          topRight: Radius.circular(40),
-          topLeft: Radius.circular(40),
-        ),
-      ),
+      height: screenHight* 0.072,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

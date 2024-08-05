@@ -1,15 +1,13 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
 import 'package:flutter/material.dart';
-import 'package:rental_app/main.dart';
 import '../../../core/resources/assets.dart';
+import '../../../core/resources/color.dart';
+import '../../../core/resources/padding.dart';
 import '../../../core/resources/string.dart';
 import '../../../core/resources/style.dart';
 
 PageController onBordingController = PageController();
 
 class OnBording extends StatelessWidget {
-  const OnBording({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +16,7 @@ class OnBording extends StatelessWidget {
         child: PageView(
           controller: onBordingController,
           //physics: const NeverScrollableScrollPhysics(),
-          children: const [
+          children:  [
             OnBordingScreen(
               image: onbordingImage1,
               titel: ANYWHEREYOUARE,
@@ -46,10 +44,11 @@ class OnBording extends StatelessWidget {
     );
   }
 }
+final ValueNotifier valueNotifier=ValueNotifier(0.0);
 
 class OnBordingScreen extends StatelessWidget {
   // ignore: use_super_parameters
-  const OnBordingScreen({
+   OnBordingScreen({
     Key? key,
     required this.image,
     required this.titel,
@@ -70,48 +69,63 @@ class OnBordingScreen extends StatelessWidget {
         height:  double.infinity,
         width:  double.infinity,
         child: ListView(
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Spacer(flex: 1),
-            const Flexible(
-              flex: 2,
-              child: Padding(
-                  padding: EdgeInsets.only(left: 300),
-                  child: Text(SKIP, style: skipTextStyle)),
-            ),
-            const Spacer(flex: 2),
-            Flexible(
-              flex: 7,
-              child: Image.asset(
-                image,
+            Padding(
+              padding: rightAndTopPadding(0.02, 0.04),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: TextButton(child: Text(SKIP, style: skipTextStyle),onPressed: (){Navigator.pushNamed(context, '/Welcome');}),
               ),
             ),
-            const Spacer(),
-            Flexible(
-              flex: 3,
-              child: Text(titel, style: onBordingTitelTextStyle),
+            Padding(
+              padding: leftAndRightAndTopPadding(0.02, 0.02, 0.04),
+              child: Image.asset(image,),
             ),
-            Flexible(
-              flex: 2,
-              child: Text(subTitel, style: onBordingSubTitleTextStyle),
+            Padding(
+              padding: onlyTopPadding(0.04),
+              child: Align(
+                  alignment: Alignment.center,
+                  child: Text(titel, style: onBordingTitelTextStyle)
+              ),
             ),
-            const Spacer(
-              flex: 6,
+            Padding(
+              padding: onlyTopPadding(0.02),
+              child: Align(
+                  alignment: Alignment.center,
+                  child: Text(subTitel, style: onBordingSubTitleTextStyle)
+              ),
             ),
-            Flexible(
-              flex: 3,
-              child: InkWell(
-                onTap: () {
-                  if (index > 2) {
-                    Navigator.pushNamed(context, '/MapPage');
-                  } else {
-                    onBordingController.nextPage(
-                        duration: const Duration(seconds: 2),
-                        curve: Curves.bounceIn);
-                  }
-                },
-                child: Image.asset(subimage),
+            Padding(
+              padding: onlyTopPadding(0.26),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  ValueListenableBuilder(
+                    valueListenable: valueNotifier,
+                    builder: (context,value,child) {
+                      return SizedBox(
+                        height: 100.0,
+                        width: 100.0,
+                        child: CircularProgressIndicator(
+                          backgroundColor: subtitleColor,
+                          color: darkGreenColor,
+                          strokeWidth: 5,
+                          value: value
+                        ),
+                      );}
+                  ),
+                  Center(
+                    child: IconButton(icon: Icon(Icons.arrow_circle_right_sharp,color: darkGreenColor,size: 100,),onPressed: (){ valueNotifier.value = valueNotifier.value+0.5;
+                    print(index);
+                      if (index >= 2) {
+                      Navigator.pushReplacementNamed(context, '/Welcome');
+                    } else {
+                      onBordingController.nextPage(
+                          duration: const Duration(microseconds: 2),
+                          curve: Curves.linear);
+                    }},),
+                  )
+                ],
               ),
             ),
           ],

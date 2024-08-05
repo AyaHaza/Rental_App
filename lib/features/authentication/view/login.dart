@@ -42,7 +42,7 @@ class _LoginState extends State<Login> {
               child: ListView(
                 children: [
                   Padding(
-                    padding:  firstPadding,
+                    padding:leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
                     child: Row(
                       children: [
                         IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(Icons.arrow_back_ios)),
@@ -51,19 +51,19 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   Padding(
-                    padding: thirdPadding,
+                    padding: leftAndRightAndTopPadding(0.02,0.02,0.02),
                     child: Center(child: const Text(signIn,style: TextStyle(fontSize:32 ,fontWeight: FontWeight.w500),)),
                   ),
                   Padding(
-                    padding: secondPadding,
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Center(child: const Text(enterYourPhoneAndPassword,style: TextStyle(fontSize:18 ,color: subtitleColor),)),
                     ),
                   ),
                   Padding(
-                    padding:  secondPadding,
-                    child: TextFieldCustom(darkGreenColor, const SizedBox(),InkWell(child: Container(width: 108,alignment: Alignment.center,child: Row(
+                    padding:  leftAndRightAndTBottomPadding(0.02,0.02,0.02),
+                    child: TextFieldCustom(white, const SizedBox(),InkWell(child: Container(width: 108,alignment: Alignment.center,child: Row(
                       children: [
                         Text('    ${country.flagEmoji}'),
                         const Icon(Icons.keyboard_arrow_down_outlined),
@@ -79,16 +79,16 @@ class _LoginState extends State<Login> {
                     },(){},false),
                   ),
                   Padding(
-                    padding:  firstPadding,
+                    padding: leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
                     child: ValueListenableBuilder(
                         valueListenable: valueNotifierPass,
                         builder: (context, value, child){
-                          return TextFieldCustom(darkGreenColor, IconButton(onPressed: (){valueNotifierPass.value=!valueNotifierPass.value;}, icon: (value==true)?Icon(Icons.visibility_off_outlined,color: subtitleColor,):Icon(Icons.visibility,color: darkGreenColor,)) ,const SizedBox(), enteerYourPassword, passwordController, TextInputType.name, 1,(v){},(){},valueNotifierPass.value);
+                          return TextFieldCustom(white, IconButton(onPressed: (){valueNotifierPass.value=!valueNotifierPass.value;}, icon: (value==true)?Icon(Icons.visibility_off_outlined,color: subtitleColor,):Icon(Icons.visibility,color: darkGreenColor,)) ,const SizedBox(), enteerYourPassword, passwordController, TextInputType.name, 1,(v){},(){},valueNotifierPass.value);
                         }
                     ),
                   ),
                   Padding(
-                    padding: secondPadding,
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
                     child: Row(
                       children: [
                         ValueListenableBuilder(
@@ -117,7 +117,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   Padding(
-                    padding: secondPadding,
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
                     child: ButtonCustom(0,0, screenHight*0.06, BlocBuilder<AuthBloc,AuthStates>(
                       builder:(context, state) {
                         if(state is InitialState){
@@ -136,7 +136,7 @@ class _LoginState extends State<Login> {
                           return const Text(signIn,style: TextStyle(fontSize: 30,color: white),);
                         }else if(state is SuccessState){
                           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                            Navigator.pushNamed(context, '/HomeScreen');
+                            Navigator.pushNamed(context, '/MapScreen');
                             QuickAlert.show(
                               context: context,
                               type: QuickAlertType.success,

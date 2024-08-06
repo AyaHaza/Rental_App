@@ -4,14 +4,18 @@ import 'package:flutter/material.dart';
 
 // ignore: non_constant_identifier_names
 Widget TextFieldCustom(
-  Color? textFiedColor,
-  Widget suffixIcon,
+  void Function()? function,
+  Color textFiedColor,
+  Color borderColor,
+  Widget preffixIcon,
+  Widget? suffixIcon,
   String hintText,
   TextEditingController controller,
   TextInputType keyboardType,
   int maxLines,
 ) {
   return TextFormField(
+    onTap: function,
     validator: (value) {
       if (value == null || value.isEmpty) {
         return 'filed ${hintText} should be not empty !';
@@ -22,10 +26,14 @@ Widget TextFieldCustom(
       controller.text = value!;
     },
     decoration: InputDecoration(
+      filled: true,
+      fillColor: textFiedColor,
       border: OutlineInputBorder(
+        borderSide: BorderSide(color: borderColor, width: 1),
         borderRadius: BorderRadius.circular(8),
       ),
       hintText: hintText,
+      prefixIcon: preffixIcon,
       suffixIcon: suffixIcon,
     ),
     controller: controller,

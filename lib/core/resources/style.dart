@@ -40,6 +40,25 @@ const TextStyle onBordingTitelTextStyle = TextStyle(
 
 const TextStyle onBordingSubTitleTextStyle = TextStyle(
   fontWeight: FontWeight.w500,
-  fontSize: 24,
+  fontSize: 14,
   color: subtitleOnBordingColor,
 );
+
+const TextStyle skipTextStyle = TextStyle(
+  fontWeight: FontWeight.w400,
+  fontSize: 16,
+  color: titelColor,
+);
+const TextStyle buttonwhiteTextStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 16,
+  color: white,
+);
+const TextStyle buttonBlackTextStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 16,
+  color: titelColor,
+);
+
+const TextStyle selectStyle =
+    TextStyle(color: black, fontWeight: FontWeight.w500, fontSize: 20);

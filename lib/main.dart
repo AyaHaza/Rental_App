@@ -6,7 +6,7 @@ import 'config/bloc_observe.dart';
 import 'config/hive_config.dart';
 import 'config/responsive.dart';
 import 'config/routes.dart';
-import 'features/map/view/map.dart';
+import 'core/widgets_App/botton_navigation.dart';
 import 'features/onBording/view/onBording.dart';
 import 'firebase_options.dart';
 
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRoutes.onGenerateRoutes,
       title: 'Rental App',
-      home: (userHive!.get("token")==null || userHive!.get("token")=='')?OnBording() : MapScreen(),
+      home: (userHive!.get("token")==null || userHive!.get("token")=='')?OnBording() : ButtomNavBar(),
     );
   }
 }

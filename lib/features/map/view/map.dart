@@ -14,7 +14,6 @@ import '../../../core/widgets_App/buttons_widget.dart';
 import '../../../core/widgets_App/drawer_widget.dart';
 import '../../../core/widgets_App/textField_widget.dart';
 import '../widgets/bootm_sheet.dart';
-import '../widgets/buttom_nav_bar.dart';
 
 class MapScreen extends StatelessWidget {
   int currentpageindix = 0;
@@ -118,12 +117,6 @@ class MapScreen extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-          backgroundColor: darkGreenColor,
-          child: const Icon(Icons.wallet, color: white,), onPressed: () {}
-      ),
-      bottomNavigationBar: const ButtomNavBar()
     );
   }
 }

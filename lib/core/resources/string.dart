@@ -54,3 +54,11 @@ const String FORM="Form";
 const String TO="To";
 const String RECENTPLACE= "Recent place";
 
+
+
+//bottom nav
+const String home='home';
+ const String favorite='favorite';
+ const String wallet='wallet';
+ const String offer='offer';
+ const String profile='profile';

@@ -190,7 +190,7 @@ class _RegisterState extends State<Register> {
                           return  Text(state.failure,style: TextStyle(fontSize: 30,color: darkRedColor),);
                         }else if(state is SuccessState){
                           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                            Navigator.pushNamed(context, '/MapScreen');
+                            Navigator.pushNamed(context, '/ButtomNavBar');
                             QuickAlert.show(
                               context: context,
                               type: QuickAlertType.success,

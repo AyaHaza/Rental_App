@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../core/widgets_App/botton_navigation.dart';
 import '../features/authentication/view/login.dart';
 import '../features/authentication/view/register.dart';
 import '../features/authentication/view/set_password.dart';
@@ -34,6 +35,9 @@ class AppRoutes {
 
       case '/MapScreen':
       return _materialRoute(settings,MapScreen());
+
+      case '/ButtomNavBar':
+        return _materialRoute(settings,ButtomNavBar());
 
       default:
         return _materialRoute( settings,OnBording());

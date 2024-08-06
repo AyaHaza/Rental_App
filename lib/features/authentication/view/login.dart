@@ -136,7 +136,7 @@ class _LoginState extends State<Login> {
                           return const Text(signIn,style: TextStyle(fontSize: 30,color: white),);
                         }else if(state is SuccessState){
                           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                            Navigator.pushNamed(context, '/MapScreen');
+                            Navigator.pushNamed(context, '/ButtomNavBar');
                             QuickAlert.show(
                               context: context,
                               type: QuickAlertType.success,

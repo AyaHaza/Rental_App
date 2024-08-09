@@ -1,0 +1,170 @@
+{
+  "project_info": {
+    "project_number": "167104993030",
+    "project_id": "management-notifications-566b9",
+    "storage_bucket": "management-notifications-566b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167104993030:android:ffb44337af8cf6f55ff087",
+        "android_client_info": {
+          "package_name": "com.example.admin_notification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167104993030-o99a8p5os2krguqdscl4r077m8mbd4bl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_hWqJMU3OfilElNthFuMNAzSnb3C7l4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167104993030-o99a8p5os2krguqdscl4r077m8mbd4bl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "167104993030-1i2fp8apkq92v6she86u702ou8g6b49r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.rentalApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167104993030:android:73bfb2e19075d1085ff087",
+        "android_client_info": {
+          "package_name": "com.example.management_of_statistics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167104993030-o99a8p5os2krguqdscl4r077m8mbd4bl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_hWqJMU3OfilElNthFuMNAzSnb3C7l4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167104993030-o99a8p5os2krguqdscl4r077m8mbd4bl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "167104993030-1i2fp8apkq92v6she86u702ou8g6b49r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.rentalApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167104993030:android:71d573560655f3a95ff087",
+        "android_client_info": {
+          "package_name": "com.example.rental_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167104993030-qlbk6l0m1ibbg2cm1kv0cb8ov5f6leb1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rental_app",
+            "certificate_hash": "1ec98b5e9843c55f5653575ccbff532cc34c5a88"
+          }
+        },
+        {
+          "client_id": "167104993030-o99a8p5os2krguqdscl4r077m8mbd4bl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_hWqJMU3OfilElNthFuMNAzSnb3C7l4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167104993030-o99a8p5os2krguqdscl4r077m8mbd4bl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "167104993030-1i2fp8apkq92v6she86u702ou8g6b49r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.rentalApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167104993030:android:177baa8ede353c515ff087",
+        "android_client_info": {
+          "package_name": "com.example.rental_clean_tdd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167104993030-5e30kiangrmmbe2earf756jbecb6isa9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rental_clean_tdd",
+            "certificate_hash": "1ec98b5e9843c55f5653575ccbff532cc34c5a88"
+          }
+        },
+        {
+          "client_id": "167104993030-o99a8p5os2krguqdscl4r077m8mbd4bl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_hWqJMU3OfilElNthFuMNAzSnb3C7l4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167104993030-o99a8p5os2krguqdscl4r077m8mbd4bl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "167104993030-1i2fp8apkq92v6she86u702ou8g6b49r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.rentalApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

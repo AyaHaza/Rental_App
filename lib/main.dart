@@ -1,10 +1,25 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'config/responsive_init_point/responsive.dart';
-import 'core/resources/color.dart';
-import 'core/widgets_App/drawer_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'config/bloc_observe.dart';
+import 'config/hive_config.dart';
+import 'config/responsive.dart';
+import 'config/routes.dart';
+import 'core/widgets_App/botton_navigation.dart';
+import 'features/authentication/presentation_layer/view/welcome.dart';
+import 'firebase_options.dart';
+import 'injection_container.dart';
 
-void main() {
-
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await initializeDependencies();
+  await Hive.initFlutter();
+  await setupHive();
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -14,37 +29,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     initResponsive(context);
+    print(userHive!.get("token"));
+    // userHive!.delete("token");
     return MaterialApp(
-      title: 'Flutter Demo',
-      home:  MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: white,
-      
-      appBar: (isMobail)?AppBar(backgroundColor: white,):PreferredSize(preferredSize: Size(0, 0),
-      child:SizedBox(),),
-      drawer: DrawerCustom("Nate Samson","nate@email.con",(){},(){},(){},(){},(){},(){},(){}),
-      body: Row(
-        children: [
-          if(isWeb)
-            Container(
-              width: 200,
-              child:  DrawerCustom("Nate Samson","nate@email.con",(){},(){},(){},(){},(){},(){},(){}),
-            ),
-          // Center(
-          //   child: Text(
-          //     "$screenHight, ,  $screenWidth"
-          //   ),
-          // ),
-        ],
-      ),
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: AppRoutes.onGenerateRoutes,
+      title: 'Rental App',
+      // home: yestMap(),
+      home: (userHive!.get("token")==null || userHive!.get("token")=='')?Welcome() : ButtomNavBar(),
     );
   }
 }

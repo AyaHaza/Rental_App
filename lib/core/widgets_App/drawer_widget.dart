@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../resources/assets.dart';
 import '../resources/color.dart';
 import '../resources/string.dart';
 
@@ -7,7 +6,8 @@ import '../resources/string.dart';
 Widget DrawerCustom(
     String nameUser,
     String emailUser,
-    void Function()? historyOnTap,
+ImageProvider<Object> image,
+void Function()? historyOnTap,
     void Function()? complainOnTap,
     void Function()? referralOnTap,
     void Function()? aboutOnTap,
@@ -19,6 +19,7 @@ Widget DrawerCustom(
       borderRadius: BorderRadius.only(
           topRight: Radius.circular(60), bottomRight: Radius.circular(60)),
     ),
+    width: 240,
     backgroundColor: white,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,9 +39,11 @@ Widget DrawerCustom(
               decoration: const BoxDecoration(
                   shape: BoxShape.circle, color: lightGreen),
               child: Container(
-                decoration: const BoxDecoration(
+                decoration:  BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(boyImage),
+                    //imageUser
+                    // image: AssetImage(boyImage),
+                    image:image,
                     fit: BoxFit.fill,
                   ),
                   shape: BoxShape.circle,

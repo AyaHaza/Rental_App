@@ -1,0 +1,8 @@
+{
+   "message": "Create new account done successfully",
+  "status": "CREATED",
+  "localDateTime": "2024-08-09T22:43:23.6585717",
+  "body": {
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmFxdHJpIiwiaWF0IjoxNzIzMjMyNjAzLCJleHAiOjE3MjMzMTkwMDN9.e53Ei0Oqdy3DS_FSPqGgS9OQJzcB_K92Q5ZObxp2KCE"
+  }
+}

@@ -16,7 +16,7 @@ class AuthServiceImp extends CoreService{
           data: usermodel.toJson()
       );
       print(CoreService.responsee.statusCode);
-        return const Right(true);
+      return const Right(true);
      }on DioException catch (e) {
       print(e.response!.data["message"]);
       var msg = e.response!.data["message"];
@@ -69,7 +69,7 @@ class AuthServiceImp extends CoreService{
     try{
       await googleSignIn.signIn();
       isGoogle=true;
-      userHive!.put("token", googleSignIn.currentUser!.email);
+      // userHive!.put("token", googleSignIn.currentUser!.email);
       user=googleSignIn;
       return true;
     }catch(e){

@@ -1,10 +1,4 @@
 
-import 'dart:convert';
-
-UserModelT userModelFromJson(String str) => UserModelT.fromJson(json.decode(str));
-
-String userModelToJson(UserModelT data) => json.encode(data.toJson());
-
 class UserModelT  {
   String? phone;
   String? password;

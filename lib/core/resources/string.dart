@@ -48,7 +48,7 @@ const String ATANYTIME= 'At anytime';
 const String BOOKYOURCAR= 'Book your car';
 const String SKIP="Skip";
 const String RENTAL="Rental";
-const  String WHEREWOULDYOUGO="Where would you go ?";
+const String WHEREWOULDYOUGO="Where would you go ?";
 const String SELECTADDRESS="select address";
 const String FORM="Form";
 const String TO="To";
@@ -58,7 +58,36 @@ const String RECENTPLACE= "Recent place";
 
 //bottom nav
 const String home='home';
- const String favorite='favorite';
- const String wallet='wallet';
- const String offer='offer';
- const String profile='profile';
+const String favorite='favorite';
+const String wallet='wallet';
+const String offer='offer';
+const String profile='profile';
+
+
+//transport
+const String selectTransport='Select transport';
+const String selectYourTransport='Select your transport';
+const String bicycle='bicycle';
+const String avaiable='Avaiable';
+const String forRide='for ride';
+const String carsFound='cars found ';
+const String type='type';
+const String size='size';
+const String price='price';
+const String bookLater='Book later';
+const String rideNow='Ride now';
+const String meter='m';
+const String viewBicyleList='View bicyle list';
+const String rentalBike='Renatal bicycle';
+const String showBikeList='Show bicycle list';
+const String reviews='4.9 ( 531 reviews )';
+const String specifications='Specifications';
+const String carFeatures='Car features';
+const String model='Model ';
+const String typeBike ='Type ';
+const String priceBike='Price ';
+const String sizeBike='Size ';
+const String noteBike='note ';
+
+
+

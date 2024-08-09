@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rental_app/config/responsive.dart';
-import 'package:rental_app/core/resources/color.dart';
 import '../../../core/resources/variable.dart';
+import '../../config/responsive.dart';
+import '../resources/color.dart';
 import '../resources/string.dart';
 
 class ButtomNavBar extends StatefulWidget {
@@ -20,6 +20,7 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: crrentIndex,
         type: BottomNavigationBarType.fixed,
+        backgroundColor: white,
         selectedItemColor: darkGreenColor,
         unselectedItemColor: subtitleColor,
         iconSize: 18,

@@ -6,3 +6,4 @@ const String indexOnbordingImage1= "images/index1.png" ;
 const String indexOnbordingImage2= "images/index2.png" ;
 const String indexOnbordingImage3= "images/index3.png" ;
 const String mapImage="images/Map.png";
+const String cycleImage='images/cycle.png';

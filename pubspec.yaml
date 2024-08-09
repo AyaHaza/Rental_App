@@ -50,6 +50,8 @@ dependencies:
   google_sign_in: ^6.2.1
   hive_flutter: ^1.1.0
   quickalert: ^1.1.0
+  location: ^7.0.0
+  flutter_map_math: ^0.1.7
 
 dev_dependencies:
   flutter_test:

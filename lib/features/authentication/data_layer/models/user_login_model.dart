@@ -1,5 +1,3 @@
-
-
 import '../../domain_layer/entities/user_login_entity.dart';
 
 class UserLoginModel extends UserLoginEntity  {

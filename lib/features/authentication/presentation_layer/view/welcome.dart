@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../config/responsive.dart';
 import '../../../../core/resources/color.dart';
 import '../../../../core/resources/padding.dart';

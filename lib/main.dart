@@ -35,7 +35,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRoutes.onGenerateRoutes,
       title: 'Rental App',
-      // home: yestMap(),
       home: (userHive!.get("token")==null || userHive!.get("token")=='')?Welcome() : ButtomNavBar(),
     );
   }

@@ -22,7 +22,7 @@ void main(){
     confirmPassword: 'aassqQQ12!!'
   );
 
-  test('should send user to repo', ()async{
+  test('should send and get from repo successfully', ()async{
     when(mockAuthenticationRepository.signUp(userRegisterEntity)).thenAnswer((_)async{
       return Right(true);
     });

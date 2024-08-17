@@ -1,6 +1,9 @@
 import 'package:flutter_map/flutter_map.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../features/authentication/presentation_layer/view/profile.dart';
+import '../../features/map/presentation_layer/view/map.dart';
+
 const String baseUrl='https://rideshare.devscape.online/api/v1';
 const String registerApi='/auth/register';
 const String loginApi='/auth/authenticate';
@@ -9,6 +12,7 @@ const String getBicycleCategoryApi='/bicycle/bicycles-categories';
 const String getBicycleByCategoryApi='/bicycle/bicycles-by-category';
 const String getHubContentApi='/hub-content/';
 const String getBicycleDetailsApi='/bicycle/';
+const String getPhoto='/photo/all';
 final String apiKey='5b3ce3597851110001cf624845116daa7faa4388a67f4709644835b7';
 const String urlTempletMap="https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 
@@ -22,11 +26,15 @@ var user;
 bool isGoogle=false;
 int crrentIndex=0;
 final tabs=[
-  // MapScreen(),
+  MapScreen(),
   // FavoriteScreen(),
   // WalletScreen(),
   // OfferScreen(),
-  // ProfileScreen()
+  // ProfileScreen(),
+  ProfileScreen(),
+  ProfileScreen(),ProfileScreen(),ProfileScreen()
+
+
 ];
 
 List<Marker> marker=[];

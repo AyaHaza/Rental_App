@@ -1,5 +1,3 @@
-
-
 import '../../domain_layer/entities/user_regiser_entity.dart';
 
 class UserRegisterModel extends UserRegisterEntity {

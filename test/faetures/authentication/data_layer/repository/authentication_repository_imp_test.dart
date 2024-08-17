@@ -27,11 +27,15 @@ void main(){
       password: 'aassqQQ12!!',
       confirmPassword: 'aassqQQ12!!'
   );
+  UserLoginEntity userLoginEntity=UserLoginEntity(
+    phone: '4790112833',
+    password: 'aassqQQ12!!',
+  );
 
   group("signUp", (){
     test("success API ", ()async{
       when(mockAuthApiService.signup(userRegisterEntity)).thenAnswer((_)async{
-        return Right(true);
+        return true;
       });
       final res=await authenticationRepositoryImp.signUp(userRegisterEntity);
       expect(res, Right(true));
@@ -50,16 +54,10 @@ void main(){
     });
   });
 
-
-
-  UserLoginEntity userLoginEntity=UserLoginEntity(
-    phone: '4790112833',
-    password: 'aassqQQ12!!',
-  );
   group("signIn", (){
     test("success API ", ()async{
       when(mockAuthApiService.signin(userLoginEntity)).thenAnswer((_)async{
-        return Right(true);
+        return true;
       });
       final res=await authenticationRepositoryImp.signIn(userLoginEntity);
       expect(res, Right(true));

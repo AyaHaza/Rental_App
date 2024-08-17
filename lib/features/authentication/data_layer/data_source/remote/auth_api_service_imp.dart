@@ -1,33 +1,34 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:rental_clean_tdd/core/error/exception.dart';
-import 'package:rental_clean_tdd/core/error/failure.dart';
-import 'package:rental_clean_tdd/features/authentication/data_layer/data_source/remote/auth_api_service.dart';
-import 'package:rental_clean_tdd/features/authentication/data_layer/models/user_login_model.dart';
 import '../../../../../config/hive_config.dart';
+import '../../../../../core/error/exception.dart';
 import '../../../../../core/resources/variable.dart';
-import '../../../../../core/service/core_service.dart';
+import '../../models/user_login_model.dart';
 import '../../models/user_register_model.dart';
+import 'auth_api_service.dart';
 
-class AuthApiServiceImp extends AuthApiService{
-
-
+class AuthApiServiceImp implements AuthApiService{
+  Dio dio;
+  AuthApiServiceImp(this.dio);
   @override
-  Future<Either<Failure, bool>> signup(userEntity)async {
+  Future<bool> signup(userEntity)async {
     try{
       print(baseUrl+registerApi);
       isGoogle=false;
       final _data = jsonEncode(UserRegisterModel.fromJson(userEntity));
       print(_data);
-      CoreService.responsee =await CoreService.dio.post(
+      print(userEntity);
+      Response responsee =await dio.post(
           baseUrl+registerApi,
           data: _data
       );
-      print(CoreService.responsee.statusCode);
-      return const Right(true);
+      print(responsee.statusCode);
+      return true;
     }on DioException catch (e) {
+      if(e.response == null){
+        throw DioException(requestOptions: RequestOptions());
+      }
       print(e.response!.data["message"]);
       var msg = e.response!.data["message"];
       if (msg is List) {
@@ -37,28 +38,32 @@ class AuthApiServiceImp extends AuthApiService{
       } else if(msg is String){
         throw ServerException(msg);
       }else{
-        throw ServerException('unknown error');
+        throw SocketException("Failed to connect to the network");
       }
     }
   }
 
 
   @override
-  Future<Either<Failure, bool>> signin(userEntity) async{
+  Future<bool> signin(userEntity) async{
     try{
       print(baseUrl+loginApi);
       isGoogle=false;
       final _data = jsonEncode(UserLoginModel.fromJson(userEntity));
-      CoreService.responsee =await CoreService.dio.post(
+      print(_data);
+      Response responsee =await dio.post(
           baseUrl+loginApi,
           data: _data
       );
-      print(CoreService.responsee.statusCode);
+      print(responsee.statusCode);
       if(saveToken==true){
-        userHive!.put("token", CoreService.responsee.data['body']['token']);
+        userHive!.put("token", responsee.data['body']['token']);
       }
-      return const Right(true);
+      return true;
     }on DioException catch (e) {
+      if(e.response == null){
+        throw DioException(requestOptions: RequestOptions());
+      }
       print(e.response!.data["message"]);
       var msg = e.response!.data["message"];
       if (msg is List) {
@@ -68,7 +73,7 @@ class AuthApiServiceImp extends AuthApiService{
       } else if(msg is String){
         throw ServerException(msg);
       }else{
-        throw ServerException('unknown error');
+        throw SocketException("Failed to connect to the network");
       }
     }
   }

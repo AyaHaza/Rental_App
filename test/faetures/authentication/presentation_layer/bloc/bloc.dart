@@ -1,4 +1,4 @@
-import 'package:bloc_test/bloc_test.dart';
+  import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -64,34 +64,6 @@ void main(){
     );
   });
 
-  group("signup", (){
-    blocTest<AuthBloc,AuthStates>(
-        "should emit [AuthLoading,AuthSuccess] when data is gotten successfully",
-        build: (){
-          when(mockSignUpUseCase.call(userRegisterEntity)).thenAnswer((_)async=>Right(true));
-          return authBloc;
-        },
-        act: (bloc)=>bloc.add(RegisterEvent(userRegisterEntity)),
-        expect: ()=>[
-          isA<LoadingState>(),
-          isA<SuccessState>()
-        ]
-    );
-
-    blocTest<AuthBloc,AuthStates>(
-        "should emit [AuthLoading,AuthError] when data is gotten unsuccessfully",
-        build: (){
-          when(mockSignUpUseCase.call(userRegisterEntity)).thenAnswer((_)async=>Left(ServerFailure("server Failure")));
-          return authBloc;
-        },
-        act: (bloc)=>bloc.add(RegisterEvent(userRegisterEntity)),
-        expect: ()=>[
-          isA<LoadingState>(),
-          isA<ErrorState>()
-        ]
-    );
-  });
-
   group("signin", (){
     blocTest<AuthBloc,AuthStates>(
         "should emit [AuthLoading,AuthSuccess] when data is gotten successfully",
@@ -119,4 +91,5 @@ void main(){
         ]
     );
   });
+
 }

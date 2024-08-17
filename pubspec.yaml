@@ -53,6 +53,7 @@ dependencies:
   location: ^7.0.0
   flutter_map_math: ^0.1.7
   get_it: ^7.7.0
+  http_mock_adapter: ^0.6.1
 
 dev_dependencies:
   bloc_test: ^9.1.7

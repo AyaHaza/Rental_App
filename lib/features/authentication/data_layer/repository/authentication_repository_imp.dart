@@ -1,13 +1,11 @@
 import 'dart:io';
-
-import 'package:rental_clean_tdd/core/error/exception.dart';
-
+import 'package:dartz/dartz.dart';
+import '../../../../core/error/exception.dart';
 import '../../../../core/error/failure.dart';
 import '../../domain_layer/repository/authentication_repository.dart';
-import 'package:dartz/dartz.dart';
 import '../data_source/remote/auth_api_service.dart';
 
-class AuthenticationRepositoryImp extends AuthenticationRepository{
+class AuthenticationRepositoryImp implements AuthenticationRepository{
   AuthApiService authApiService;
   AuthenticationRepositoryImp(this.authApiService);
 

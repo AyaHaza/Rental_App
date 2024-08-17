@@ -17,7 +17,7 @@ void main(){
       password: 'aassqQQ12!!',
   );
 
-  test('should send user to repo', ()async{
+  test('should send and get from repo successfully', ()async{
     when(mockAuthenticationRepository.signIn(userLoginEntity)).thenAnswer((_)async{
       return Right(true);
     });

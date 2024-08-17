@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../config/responsive.dart';
+import '../../../core/resources/assets.dart';
 import '../../../core/resources/color.dart';
 import '../../../core/resources/padding.dart';
 import '../../../core/resources/string.dart';
@@ -19,7 +20,7 @@ class Welcome extends StatelessWidget {
           children: [
             Padding(
               padding: leftAndRightAndTopPadding(0.02,0.02,0.02),
-              child: Image.asset("images/Welcome.png"),
+              child: Image.asset(welcomeImage),
             ),
             Padding(
               padding: leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),

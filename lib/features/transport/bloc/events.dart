@@ -13,6 +13,9 @@ class getHubContent extends TransportEvents{
   getHubContent(this.category,this.hudId);
 }
 
+class getPhotos extends TransportEvents{}
+
+
 class getBicycleDetail extends TransportEvents{
   int bicyleId;
   getBicycleDetail(this.bicyleId);

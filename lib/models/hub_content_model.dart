@@ -1,4 +1,3 @@
-
 class HubContentModel {
   String message;
   String status;

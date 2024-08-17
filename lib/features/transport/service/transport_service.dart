@@ -8,6 +8,7 @@ import '../../../models/bicycle_by_category_model.dart';
 import '../../../models/bicycle_category_model.dart';
 import '../../../models/bicycle_details.dart';
 import '../../../models/hub_content_model.dart';
+import '../../../models/photo_model.dart';
 
 class TransportService extends CoreService{
 
@@ -65,7 +66,7 @@ class TransportService extends CoreService{
 
   Future<Either<Failure, HubContentModel>> getHubContent(category,hubId)async{
     try{
-      print('$baseUrl$getHubContentApi/$hubId?bicycleCategory=$category');
+      print('$baseUrl$getHubContentApi$hubId?bicycleCategory=$category');
       CoreService.responsee =await CoreService.dio.get(
           '$baseUrl$getHubContentApi/$hubId?bicycleCategory=$category',
           options: Options(
@@ -84,14 +85,14 @@ class TransportService extends CoreService{
         return Left(ServerFailure(CoreService.responsee.data.toString()));
       }
     }on DioException catch (e) {
-      return const Left(ConnectionFailure("An error in network"));
+      return Left(ConnectionFailure(e.response?.data["message"]));
     }
   }
 
 
   Future<Either<Failure, BicycleDetailsModel>> getdetails(bicycleId)async{
     try{
-      print('$baseUrl$getBicycleDetailsApi/$bicycleId');
+      print('$baseUrl$getBicycleDetailsApi$bicycleId');
       CoreService.responsee =await CoreService.dio.get(
           '$baseUrl$getBicycleDetailsApi/$bicycleId',
           options: Options(
@@ -106,6 +107,32 @@ class TransportService extends CoreService{
         BicycleDetailsModel getBicycleDetail=BicycleDetailsModel.fromJson(CoreService.responsee.data);
         print(getBicycleDetail);
         return Right(getBicycleDetail);
+      }else{
+        return Left(ServerFailure(CoreService.responsee.data.toString()));
+      }
+    }on DioException catch (e) {
+      return const Left(ConnectionFailure("An error in network"));
+    }
+  }
+
+
+  Future<Either<Failure, PhotoModel>> getPhotos()async{
+    try{
+      print('$baseUrl$getPhoto');
+      CoreService.responsee =await CoreService.dio.get(
+          '$baseUrl$getPhoto',
+          options: Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization': 'Bearer ${userHive!.get("token")}'
+              }
+          )
+      );
+      print(CoreService.responsee.statusCode);
+      if(CoreService.responsee.statusCode==200){
+        PhotoModel getImages=PhotoModel.fromJson(CoreService.responsee.data);
+        print(getImages);
+        return Right(getImages);
       }else{
         return Left(ServerFailure(CoreService.responsee.data.toString()));
       }

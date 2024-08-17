@@ -9,8 +9,10 @@ class ErrorState extends MapStates{
   ErrorState(this.failure);
 }
 
+
 class SuccessState extends MapStates{
   var data;
   SuccessState(this.data);
 }
+
 

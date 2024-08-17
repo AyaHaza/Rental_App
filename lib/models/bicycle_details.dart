@@ -1,4 +1,3 @@
-
 class BicycleDetailsModel {
   String message;
   String status;

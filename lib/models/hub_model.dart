@@ -1,4 +1,3 @@
-
 class Body {
   int id;
   String name;

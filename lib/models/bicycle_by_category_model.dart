@@ -1,5 +1,3 @@
-
-
 class BicycleByCategoryModel {
   String message;
   String status;

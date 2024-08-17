@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map_math/flutter_geo_math.dart';
 import 'package:latlong2/latlong.dart';
 import '../../../config/responsive.dart';
 import '../../../core/resources/assets.dart';
@@ -14,13 +15,14 @@ import '../../../core/resources/variable.dart';
 import '../../../core/widgets_App/buttons_widget.dart';
 import '../../../core/widgets_App/drawer_widget.dart';
 import '../../../core/widgets_App/textField_widget.dart';
-import '../bloc/bloc.dart';
+import '../../transport/view/select_transport.dart';
+import '../bloc/location_bloc.dart';
 import '../bloc/events.dart';
+import '../bloc/huds_bloc.dart';
 import '../bloc/states.dart';
 import '../widgets/bootm_sheet.dart';
 
 class MapScreen extends StatelessWidget {
-
   bool firstSwitchValue = false;
   TextEditingController placeController = TextEditingController();
   TextEditingController toController = TextEditingController();
@@ -31,7 +33,8 @@ class MapScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-         BlocProvider(create: (_) => MapBloc()..add(GetLocation(context))),
+        BlocProvider(create: (_) => MapBloc()..add(GetLocation())),
+        BlocProvider(create: (_) => MapHubsBloc()),
       ],
       child: Builder(
         builder: (context) {
@@ -39,31 +42,64 @@ class MapScreen extends StatelessWidget {
             backgroundColor: white,
             drawer:(isGoogle==true)? DrawerCustom(user.currentUser!.displayName!,user.currentUser!.email,NetworkImage(user.currentUser!.photoUrl),(){},(){},(){},(){},(){},(){},()async{if(isGoogle==true){await user.disconnect();};Navigator.pushNamed(context, '/Register'); }):
             DrawerCustom('user Name','userEmail@gmail.com',AssetImage(boyImage),(){},(){},(){},(){},(){},(){},()async{ Navigator.pushNamed(context, '/Register'); }),
-            body: BlocBuilder<MapBloc,MapStates>(
+            body: BlocConsumer<MapBloc,MapStates>(
               builder: (context,state) {
                 if (state is SuccessState) {
                   return Stack(
                     children: [
-                      FlutterMap(
-                        mapController: mapController,
-                        options: MapOptions(
-                          // initialCenter: LatLng(state.data.latitude!, state.data.longitude!),
-                          initialCenter: LatLng(33.510414,36.278336),
-                          initialZoom: 15.0,
-                        ),
-                        children: [
-                          TileLayer(urlTemplate: urlTempletMap,),
-                          MarkerLayer(markers: marker)
-                        ],
-                      ),
+                       FlutterMap(
+                          mapController: mapController,
+                          options: MapOptions(
+                            // initialCenter: LatLng(state.data.latitude!, state.data.longitude!),
+                            initialCenter: LatLng(33.510414,36.278336),
+                            initialZoom: 15.0,
+                          ),
+                          children: [
+                            TileLayer(urlTemplate: urlTempletMap,),
+                            MarkerLayer(markers: [
+                              Marker(point: LatLng(33.510414,36.278336), child: Icon(Icons.location_on,color: Colors.indigoAccent,size: 40,), width: 100,height: 100),
+                              // Marker(point: LatLng(state.data.latitude!, state.data.longitude!), child: Icon(Icons.location_on,color:indigoAccent,size: 40,), width: 80,height: 80)
+                            ]),
+                            BlocBuilder<MapHubsBloc,MapStates>(
+                              builder: (context,stateTwo) {
+                                if(stateTwo is SuccessState){
+                                  return MarkerLayer(markers:List.generate(stateTwo.data.length, (index) {
+                                     return Marker(
+                                       point:  LatLng(stateTwo.data[index].latitude, stateTwo.data[index].longitude),
+                                       child: IconButton(
+                                         icon:const Icon(Icons.location_on,color: darkRedColor,size: 40,),
+                                         onPressed: (){
+                                           Navigator.pushNamed(context,'/SelectTransport',arguments: SelectTransport(
+                                               hubId:stateTwo.data[index].id
+                                           ),);
+                                           print(stateTwo.data[index].id);
+                                           FlutterMapMath flutterMapMath=FlutterMapMath();
+                                           distance = flutterMapMath.distanceBetween(
+                                               state.data.latitude!,
+                                               state.data.longitude!,
+                                               stateTwo.data[index].latitude,
+                                               stateTwo.data[index].longitude,
+                                               "meters"
+                                           );
+                                         },
+                                       ),
+                                       width: 80,
+                                       height: 80
+                                     );
+                                  },));
+                                }return const SizedBox();
+                              }
+                            )
+                          ],
+                       ),
                       Padding(
                         padding: leftAndRightAndTopPadding(0.02, 0.02, 0.04),
                         child: Builder(
-                            builder: (context) {
-                              return IconButton(onPressed: () {Scaffold.of(context).openDrawer();},style: IconButton.styleFrom(backgroundColor: lightGreen,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),)),
-                                  icon: Icon(Icons.format_align_justify, size: 18,color: black,)
-                              );
-                            }
+                          builder: (context) {
+                            return IconButton(onPressed: () {Scaffold.of(context).openDrawer();},style: IconButton.styleFrom(backgroundColor: lightGreen,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),)),
+                                icon: Icon(Icons.format_align_justify, size: 18,color: black,)
+                            );
+                          }
                         ),
                       ),
                       Padding(
@@ -143,7 +179,11 @@ class MapScreen extends StatelessWidget {
                 } else {
                   return Center(child: CupertinoActivityIndicator(color: lightGreen,));
                 }
-              }
+              }, listener: (BuildContext context, MapStates state) {
+                if(state is SuccessState){
+                  context.read<MapHubsBloc>().add(GetHubs(state.data));
+                }
+              },
             ),
           );
         }

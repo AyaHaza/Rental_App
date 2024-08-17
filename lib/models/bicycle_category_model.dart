@@ -1,6 +1,3 @@
-
-import 'dart:convert';
-
 class BicycleCategoryModel {
   String message;
   String status;

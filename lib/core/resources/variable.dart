@@ -14,7 +14,8 @@ const String getBicycleCategoryApi='/bicycle/bicycles-categories';
 const String getBicycleByCategoryApi='/bicycle/bicycles-by-category';
 const String getHubContentApi='/hub-content/';
 const String getBicycleDetailsApi='/bicycle/';
-final String apiKey='5b3ce3597851110001cf624845116daa7faa4388a67f4709644835b7';
+const String getPhoto='/photo/all';
+const String apiKey='5b3ce3597851110001cf624845116daa7faa4388a67f4709644835b7';
 const String urlTempletMap="https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 final GoogleSignIn googleSignIn=GoogleSignIn(

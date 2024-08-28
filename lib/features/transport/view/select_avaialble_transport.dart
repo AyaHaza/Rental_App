@@ -50,7 +50,7 @@ class SlectAvailableTransport extends StatelessWidget {
                             children: [
                               Padding(
                                 padding: leftAndRightPadding(0.06,0.02),
-                                child: Text('${state.data.body.length} $carsFound ',style: TextStyle(fontSize:18 ,color: subtitleColor),),
+                                child: Text('${state.data.body.length} $bicycleFound ',style: TextStyle(fontSize:18 ,color: subtitleColor),),
                               ),
                               Container(
                                 height: screenHight*0.78,

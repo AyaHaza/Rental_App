@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import '../service/map_service.dart';
 import 'events.dart';
 import 'states.dart';
-
 class MapHubsBloc extends Bloc<MapEvents,MapStates>{
   MapHubsBloc():super(InitalState()){
 

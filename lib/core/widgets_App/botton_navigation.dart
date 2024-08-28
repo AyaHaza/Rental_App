@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../core/resources/variable.dart';
-import '../../config/responsive.dart';
 import '../resources/color.dart';
 import '../resources/string.dart';
 
@@ -12,10 +11,10 @@ class ButtomNavBar extends StatefulWidget {
 }
 
 class _ButtomNavBarState extends State<ButtomNavBar> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: white,
       body:tabs[crrentIndex] ,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: crrentIndex,
@@ -25,10 +24,10 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
         unselectedItemColor: subtitleColor,
         iconSize: 18,
         selectedFontSize: 12,
-        items: [
+        items: [  
           BottomNavigationBarItem(icon: Icon(Icons.home_filled),label: home,),
           BottomNavigationBarItem(icon: Icon(Icons.favorite_border),label: favorite),
-          BottomNavigationBarItem(icon: SizedBox(height: screenHight*0.03,),label: wallet),
+          BottomNavigationBarItem(icon: Icon(Icons.wallet),label: wallet),
           BottomNavigationBarItem(icon: Icon(Icons.verified_outlined),label: offer),
           BottomNavigationBarItem(icon: Icon(Icons.person),label: profile),
         ],
@@ -38,11 +37,6 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
           });
         },
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-          backgroundColor: darkGreenColor,
-          child: const Icon(Icons.wallet, color: white,), onPressed: () {}
-      ),
-    );
+     );
   }
 }

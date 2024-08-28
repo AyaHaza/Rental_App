@@ -31,6 +31,7 @@ const String atLeast1NumberOrAspecialCharacter='At least 1 number or a special c
 const String register='Register';
 const String enterYourPhoneAndPassword='Enter your phone and password';
 const String rememberMe='Remember me';
+const String editprofile='Edit Profile';
 
 
 //drawer
@@ -70,7 +71,7 @@ const String selectYourTransport='Select your transport';
 const String bicycle='bicycle';
 const String avaiable='Avaiable';
 const String forRide='for ride';
-const String carsFound='cars found ';
+const String bicycleFound='bicycles found ';
 const String type='type';
 const String size='size';
 const String price='price';
@@ -89,5 +90,36 @@ const String priceBike='Price ';
 const String sizeBike='Size ';
 const String noteBike='note ';
 
+
+
+//map
+const String searchForHubs='Search for hubs';
+const String searchForHubsHere='Search for hubs her ...';
+const String chooseStartLocation='Choose start location';
+const String chooseDestinationLocation='Choose destination location';
+const String showPath='Show path';
+const String allHubs='All hubs around you';
+const String nameHub='Name hub';
+const String desecriptionHub='Description hub';
+const String latLongHub='Address hub';
+const String addHub='Add hub ';
+const String add='Add';
+const String pickAddress='pick address';
+const String pick='pick';
+const String noAddress="There is no address like this , try again";
+const String editHub='Edit hub ';
+const String edit='Edit';
+
+
+//bicycle
+const String allBicycles='All Bicycles';
+const String modelName='model name';
+const String priceBicycle='price';
+const String sizeBicycle='size';
+const String noteBicycle='note';
+const String typeBicycle='type';
+const String choosePhoto='choose photo';
+const String addBicyle='Add bicycle ';
+const String EditBicyle='Edit bicycle ';
 
 

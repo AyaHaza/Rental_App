@@ -18,7 +18,6 @@ Widget TextFieldCustom(
     ) {
   return TextFormField(
     obscureText: obscureText,
-
     validator: (value) {
       if (value == null || value.isEmpty) {
         return 'filed ${hintText} should be not empty !';

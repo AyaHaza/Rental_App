@@ -13,10 +13,10 @@ class AuthBloc extends Bloc<AuthEvents,AuthStates>{
       final result=await AuthServiceImp().register(event.userModel);
       result.fold(
          (failure){
-           emit(ErrorState(failure.message));
+           emit(ErrorStatee(failure.message));
          },
            (data){
-           emit(SuccessState());
+           emit(SuccessStatee(true));
          }
        );
     });
@@ -26,22 +26,49 @@ class AuthBloc extends Bloc<AuthEvents,AuthStates>{
       final result=await AuthServiceImp().login(event.userModel);
       result.fold(
               (failure){
-            emit(ErrorState(failure.message));
+            emit(ErrorStatee(failure.message));
           },
               (data){
-            emit(SuccessState());
+            emit(SuccessStatee(true));
           }
       );
     });
+
+    on<ProfileEvent>((event, emit)async{
+      emit(LoadingState());
+      final resultSupa=await AuthServiceImp().getprofileSupa(event.username);
+      resultSupa.fold(
+              (failure){
+            emit(ErrorStatee(failure.message));
+          },
+              (data){
+            emit(SuccessStatee(data));
+          }
+      );
+    });
+
+    on<EditProfileEvent>((event, emit)async{
+      emit(LoadingState());
+      final resultSupa=await AuthServiceImp().editprofileSupa(event.username);
+      resultSupa.fold(
+              (failure){
+            emit(ErrorStatee(failure.message));
+          },
+              (data){
+            emit(SuccessBoolStatee());
+          }
+      );
+    });
+
 
     on<RegisterWithGmailEvent>((event, emit) async{
       emit(LoadingState());
       final result=await AuthServiceImp().registerWithGamil();
       print(result);
       if(result== true ){
-       emit(SuccessState());
+       emit(SuccessStatee(true));
       }else{
-        emit(ErrorState(result.toString()));
+        emit(ErrorStatee(result.toString()));
       }
     });
 

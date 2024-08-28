@@ -15,4 +15,8 @@ class SuccessState extends MapStates{
   SuccessState(this.data);
 }
 
+class SuccessBoolState extends MapStates{
+
+}
+
 

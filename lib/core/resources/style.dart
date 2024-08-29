@@ -59,5 +59,67 @@ const TextStyle buttonBlackTextStyle = TextStyle(
   color: titelColor,
 );
 
-const TextStyle selectStyle =
-    TextStyle(color: black, fontWeight: FontWeight.w500, fontSize: 20);
+const TextStyle selectStyle = TextStyle(
+  color: black,
+  fontWeight: FontWeight.w500,
+  fontSize: 20,
+);
+
+const TextStyle titel = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 18,
+  color: black,
+);
+
+const TextStyle addMoneyTextStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 16,
+  color: darkGreenColor,
+);
+
+const TextStyle balanceTextStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 30,
+  color: black,
+);
+
+const TextStyle transectionTextStyle = TextStyle(
+  fontWeight: FontWeight.w600,
+  fontSize: 16,
+  color:black,
+);
+
+const TextStyle seeAllTextStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 14,
+  color: darkGreenColor,
+);
+const TextStyle welltonTextStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 16,
+  color:black,
+);
+
+const TextStyle paymentTextStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 14,
+  color:blowColor,
+);
+
+const TextStyle selectPaymentTextStyle = TextStyle(
+  fontWeight: FontWeight.w600,
+  fontSize: 16,
+  color:titelColor,
+);
+
+const TextStyle pofferTextStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 16,
+  color:darkYellowColor,
+);
+
+const TextStyle collectTextStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 16,
+  color:white,
+);

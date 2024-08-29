@@ -15,7 +15,7 @@ import 'features/test.dart';
 import 'firebase_options.dart';
 // final supabase = SupabaseClient('https://nlulvjtzewkhpsistuhf.supabase.co', apiKey);
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -53,7 +53,6 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: AppRoutes.onGenerateRoutes,
       title: 'Rental App',
-      // home: MyHomePage(title: 's',),
       home: (userHive!.get("token")==null || userHive!.get("token")=='')?OnBording() : ButtomNavBar(),
     );
   }

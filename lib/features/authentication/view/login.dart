@@ -193,68 +193,45 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   Padding(
-                    padding: leftAndRightAndTBottomPadding(0.02, 0.02, 0.02),
-                    child: ButtonCustom(
-                        0,
-                        0,
-                        screenHight * 0.06,
-                        BlocBuilder<AuthBloc, AuthStates>(
-                          builder: (context, state) {
-                            if (state is InitialState) {
-                              return const Text(
-                                signIn,
-                                style: TextStyle(fontSize: 30, color: white),
-                              );
-                            } else if (state is LoadingState) {
-                              return const CupertinoActivityIndicator(
-                                color: white,
-                              );
-                            } else if (state is ErrorState) {
-                              WidgetsBinding.instance
-                                  .addPostFrameCallback((timeStamp) {
-                                QuickAlert.show(
-                                  context: context,
-                                  type: QuickAlertType.error,
-                                  text: state.failure,
-                                  confirmBtnColor: darkRedColor,
-                                );
-                              });
-                              return const Text(
-                                signIn,
-                                style: TextStyle(fontSize: 30, color: white),
-                              );
-                            } else if (state is SuccessState) {
-                              WidgetsBinding.instance
-                                  .addPostFrameCallback((timeStamp) {
-                                Navigator.pushNamed(context, '/ButtomNavBar');
-                                QuickAlert.show(
-                                  context: context,
-                                  type: QuickAlertType.success,
-                                  text: 'Your Register Completed Successfully!',
-                                  confirmBtnColor: darkGreenColor,
-                                );
-                              });
-                              return const Text(
-                                signUp,
-                                style: TextStyle(fontSize: 30, color: white),
-                              );
-                            }
-                            return const SizedBox();
-                          },
-                        ),
-                        darkGreenColor,
-                        darkGreenColor,
-                        () {
-                          if (!formKey.currentState!.validate()) {
-                            return;
-                          }
-                          formKey.currentState!.save();
-                          UserModelT userModel = UserModelT(
-                              phone: phoneController.text,
-                              password: passwordController.text);
-                          passwordHive!.put("password", passwordController.text);
-                          context.read<AuthBloc>().add(LoginEvent(userModel));
-                        }),
+                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
+                    child: ButtonCustom(0,0, screenHight*0.06, BlocBuilder<AuthBloc,AuthStates>(
+                      builder:(context, state) {
+                        if(state is InitialState){
+                          return const Text(signIn,style: TextStyle(fontSize: 30,color: white),);
+                        }else if(state is LoadingState){
+                          return const CupertinoActivityIndicator(color: white,);
+                        }else if(state is ErrorStatee){
+                          WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                            QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.error,
+                              text: state.failure,
+                              confirmBtnColor: darkRedColor ,
+                            );
+                          });
+                          return const Text(signIn,style: TextStyle(fontSize: 30,color: white),);
+                        }else if(state is SuccessStatee){
+                          WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                            Navigator.pushNamed(context, '/ButtomNavBar');
+                            QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.success,
+                              text: 'Your Register Completed Successfully!',
+                              confirmBtnColor: darkGreenColor,
+
+                            );
+                          });
+                          return const Text(signUp,style: TextStyle(fontSize: 30,color: white),);
+                        }return SizedBox();
+                      },
+                    ), darkGreenColor, darkGreenColor, (){
+                      if (!formKey.currentState!.validate()) {
+                        return;
+                      }
+                      formKey.currentState!.save();
+                      UserModelT userModel=UserModelT(phone: phoneController.text,password: passwordController.text);
+                      context.read<AuthBloc>().add(LoginEvent(userModel));
+                    }),
                   ),
                 ],
               ),

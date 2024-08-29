@@ -19,6 +19,7 @@ void Function()? historyOnTap,
       borderRadius: BorderRadius.only(
           topRight: Radius.circular(60), bottomRight: Radius.circular(60)),
     ),
+    width: 240,
     backgroundColor: white,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -119,6 +119,11 @@ class _RegisterState extends State<Register> {
                       if (datePick != null && datePick != birthDate) {
                         setState(() {
                           final String formatter = DateFormat('yyyy-MM-dd').format(datePick);
+                          // DateFormat.HOUR_GENERIC_TZ
+                          // print(datePick.timeZoneOffset);
+                          // print(datePick.toLocal());
+                          // print(datePick.toIso8601String());
+                          // print(datePick.toUtc());
                           birthDateController = DateTime.parse(formatter);
                           isDateSelected = true;
                           String birthDateInString ="${birthDateController.day}/${birthDateController.month}/${birthDateController.year}";
@@ -129,10 +134,10 @@ class _RegisterState extends State<Register> {
                   ),
                   Padding(
                     padding:  leftAndRightAndTBottomPadding(0.02,0.02,0.02),
-                    child: const Row(
+                    child:  Row(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(right: 10.0),
+                          padding: onlyRightPadding(0.01),
                           child: Icon(Icons.check_circle_outline,color: darkGreenColor,),
                         ),
                         Text(bySigningUpYouAgreeeToThe,style: TextStyle(fontSize: 12,color: subtitleColor),),
@@ -159,16 +164,13 @@ class _RegisterState extends State<Register> {
                     }),
                   ),
                   Padding(
-                    padding: leftAndRightPadding(0.02,0.2),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Row(
-                        children: [
-                          SizedBox(width:screenWidth*0.42 ,child:const Divider(color: subtitleColor,thickness: 0.6,)),
-                          const Text('      $or     ',style: TextStyle(color: subtitleColor),),
-                          const Expanded(child:Divider(color: subtitleColor,thickness: 0.6,)),
-                        ],
-                      ),
+                    padding: leftAndRightPadding(0.02, 0.02),
+                    child: const Row(
+                      children: [
+                        Expanded(flex: 2,child:Divider(color: subtitleColor,thickness: 0.6,)),
+                        Text('      $or     ',style: TextStyle(color: subtitleColor),),
+                         Expanded(flex: 2,child: Divider(color: subtitleColor,thickness: 0.6,)),
+                      ],
                     ),
                   ),
                   Padding(
@@ -185,9 +187,9 @@ class _RegisterState extends State<Register> {
                           );
                         }else if(state is LoadingState){
                           return const CupertinoActivityIndicator(color: darkGreenColor,);
-                        }else if(state is ErrorState){
+                        }else if(state is ErrorStatee){
                           return  Text(state.failure,style: TextStyle(fontSize: 30,color: darkRedColor),);
-                        }else if(state is SuccessState){
+                        }else if(state is SuccessStatee){
                           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                             Navigator.pushNamed(context, '/ButtomNavBar');
                             QuickAlert.show(
@@ -223,7 +225,7 @@ class _RegisterState extends State<Register> {
                     }),
                   ),
                   Padding(
-                    padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
+                    padding: leftAndRightAndTopPadding(0.02,0.02,0.006),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

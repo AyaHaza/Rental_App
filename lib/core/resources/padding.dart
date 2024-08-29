@@ -54,7 +54,7 @@ EdgeInsetsGeometry rightAndTopAndTBottomPadding(rightPadding,topPadding,bottomPa
   return EdgeInsets.only(right: screenWidth*rightPadding,top: screenHight*topPadding,bottom: screenHight*bottomPadding);
 }
 
-EdgeInsetsGeometry TopAndBottomPadding(topPadding,bottomPadding){
+EdgeInsetsGeometry topAndBottomPadding(topPadding,bottomPadding){
   return EdgeInsets.only(top: screenHight*topPadding,bottom: screenHight*bottomPadding);
 }
 

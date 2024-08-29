@@ -12,3 +12,6 @@ const String paypelImage="images/paypal.png";
 const String visaPaypelImage="images/visa.png";
 const String walletImage="images/wallet.gif";
 const String walletImage2="image/walllett.gif";
+const String cycleImage='images/cycle.png';
+const String welcomeImage="images/Welcome.png";
+

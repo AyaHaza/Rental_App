@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:rental_app/core/resources/color.dart';
 import 'config/bloc_observe.dart';
 import 'config/hive_config.dart';
 import 'config/responsive.dart';
@@ -10,7 +11,7 @@ import 'core/widgets_App/botton_navigation.dart';
 import 'features/onBording/view/onBording.dart';
 import 'firebase_options.dart';
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -33,7 +34,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRoutes.onGenerateRoutes,
       title: 'Rental App',
-      home: (userHive!.get("token")==null || userHive!.get("token")=='')?OnBording() : ButtomNavBar(),
+      home: (userHive!.get("token") == null || userHive!.get("token") == '')
+          ? OnBording()
+          : ButtomNavBar(),
     );
   }
 }

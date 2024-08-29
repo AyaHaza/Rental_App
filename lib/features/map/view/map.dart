@@ -25,9 +25,38 @@ class MapScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer:(isGoogle==true)? DrawerCustom(user.currentUser!.displayName!,user.currentUser!.email,NetworkImage(user.currentUser!.photoUrl),(){},(){},(){},(){},(){},(){},()async{ userHive!.delete("token");if(isGoogle==true){await user.disconnect();};Navigator.pushNamed(context, '/Register'); }):
-        DrawerCustom('user Name','userEmail@gmail.com',AssetImage(boyImage),(){},(){},(){},(){},(){},(){},()async{ userHive!.delete("token");Navigator.pushNamed(context, '/Register'); }),
-        body: Stack(
+      drawer: (isGoogle == true)
+          ? DrawerCustom(
+              user.currentUser!.displayName!,
+              user.currentUser!.email,
+              NetworkImage(user.currentUser!.photoUrl),
+              () {},
+              () {},
+              () {},
+              () {},
+              () {},
+              () {}, () async {
+              userHive!.delete("token");
+              if (isGoogle == true) {
+                await user.disconnect();
+              }
+              ;
+              Navigator.pushNamed(context, '/Register');
+            })
+          : DrawerCustom(
+              'user Name',
+              'userEmail@gmail.com',
+              AssetImage(boyImage),
+              () {},
+              () {},
+              () {},
+              () {},
+              () {},
+              () {}, () async {
+              userHive!.delete("token");
+              Navigator.pushNamed(context, '/Register');
+            }),
+      body: Stack(
         children: [
           FlutterMap(
             options: const MapOptions(
@@ -42,39 +71,83 @@ class MapScreen extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: leftAndRightAndTopPadding(0.02,0.02,0.04),
-            child: Builder(
-              builder: (context) {
-                return IconButton(onPressed: (){Scaffold.of(context).openDrawer();}, style: IconButton.styleFrom(backgroundColor: lightGreen,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10), )),icon:Icon(Icons.format_align_justify,size: 18,color: black,) );
-              }
-            ),
+            padding: leftAndRightAndTopPadding(0.02, 0.02, 0.04),
+            child: Builder(builder: (context) {
+              return IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  style: IconButton.styleFrom(
+                      backgroundColor: lightGreen,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  icon: Icon(
+                    Icons.format_align_justify,
+                    size: 18,
+                    color: black,
+                  ));
+            }),
           ),
           Padding(
-            padding: leftAndRightAndTopPadding(0.02,0.02,0.04),
+            padding: leftAndRightAndTopPadding(0.02, 0.02, 0.04),
             child: Align(
-              alignment: Alignment.topRight,
-              child: IconButton(onPressed: (){}, style: IconButton.styleFrom(backgroundColor: white,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10), )),icon:Icon(Icons.notifications_none,size: 18,color: black,) )
-            ),
+                alignment: Alignment.topRight,
+                child: IconButton(
+                    onPressed: () {},
+                    style: IconButton.styleFrom(
+                        backgroundColor: white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        )),
+                    icon: Icon(
+                      Icons.notifications_none,
+                      size: 18,
+                      color: black,
+                    ))),
           ),
           Padding(
             padding: leftAndTopPadding(0.02, 0.36),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: ButtonCustom(2, screenWidth * 0.35, screenHight * 0.054, const Text(RENTAL,style: buttonwhiteTextStyle,), darkGreenColor, darkGreenColor, () {},),
+              child: ButtonCustom(
+                2,
+                screenWidth * 0.35,
+                screenHight * 0.054,
+                const Text(
+                  RENTAL,
+                  style: buttonwhiteTextStyle,
+                ),
+                darkGreenColor,
+                darkGreenColor,
+                () {},
+              ),
             ),
           ),
           Padding(
             padding: rightAndTopPadding(0.02, 0.36),
             child: Align(
               alignment: AlignmentDirectional.centerEnd,
-              child: IconButton(onPressed: (){}, style: IconButton.styleFrom(backgroundColor: white,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10), )),icon:Icon(Icons.gps_fixed_outlined,size: 18,color: black,) ),
+              child: IconButton(
+                  onPressed: () {},
+                  style: IconButton.styleFrom(
+                      backgroundColor: white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  icon: Icon(
+                    Icons.gps_fixed_outlined,
+                    size: 18,
+                    color: black,
+                  )),
             ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              padding: leftAndRightAndTopAndTBottomPadding(0.03, 0.03, 0.02, 0.02),
-              margin:onlyBottomPadding(0.045),
+              padding:
+                  leftAndRightAndTopAndTBottomPadding(0.03, 0.03, 0.02, 0.02),
+              margin: onlyBottomPadding(0.045),
               width: screenWidth * 0.94,
               height: screenHight * 0.2,
               decoration: BoxDecoration(
@@ -85,7 +158,20 @@ class MapScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  TextFieldCustom(lightGreenColor, const Icon(Icons.favorite_border_outlined,color: subtitleColor,), const Icon(Icons.search), WHEREWOULDYOUGO, placeController, TextInputType.name, 1, (v){}, () {bottomSheetCustom(context,formController,toController);}, false),
+                  TextFieldCustom(
+                      lightGreenColor,
+                      const Icon(
+                        Icons.favorite_border_outlined,
+                        color: subtitleColor,
+                      ),
+                      const Icon(Icons.search),
+                      WHEREWOULDYOUGO,
+                      placeController,
+                      TextInputType.name,
+                      1,
+                      (v) {}, () {
+                    bottomSheetCustom(context, formController, toController);
+                  }, false),
                   AnimatedToggleSwitch<bool>.size(
                     animationCurve: Curves.linearToEaseOut,
                     current: firstSwitchvalue,

@@ -6,8 +6,8 @@ import '../resources/color.dart';
 // ignore: non_constant_identifier_names
 Widget TextFieldCustom(
     Color? textFiedColor,
-    Widget suffixIcon,
-    Widget prefixIcon,
+    Widget? suffixIcon,
+    Widget? prefixIcon,
     String hintText,
     TextEditingController controller,
     TextInputType keyboardType,

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rental_app/config/hive_config.dart';
-import 'package:rental_app/features/authentication/view/register.dart';
-import '../resources/assets.dart';
 import '../resources/color.dart';
 import '../resources/string.dart';
 

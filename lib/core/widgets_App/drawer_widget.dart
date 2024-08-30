@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rental_clean_tdd/core/resources/padding.dart';
 import '../resources/color.dart';
 import '../resources/string.dart';
 
@@ -8,8 +9,6 @@ Widget DrawerCustom(
     String emailUser,
 ImageProvider<Object> image,
 void Function()? historyOnTap,
-    void Function()? complainOnTap,
-    void Function()? referralOnTap,
     void Function()? aboutOnTap,
     void Function()? settingOnTap,
     void Function()? helpOnTap,
@@ -27,8 +26,11 @@ void Function()? historyOnTap,
         const SizedBox(
           height: 20,
         ),
-        const Row(
-          children: [Icon(Icons.arrow_back_ios), Text(back)],
+        Padding(
+          padding: leftAndTopPadding(0.04, 0.02),
+          child: const Row(
+            children: [Icon(Icons.arrow_back_ios), Text(back)],
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 28.0, top: 30, bottom: 26),
@@ -73,14 +75,6 @@ void Function()? historyOnTap,
           thickness: 0.1,
         ),
         ListTile(
-            leading: const Icon(Icons.all_out_sharp),
-            title: const Text(referral),
-            onTap: referralOnTap),
-        const Divider(
-          color: black,
-          thickness: 0.1,
-        ),
-        ListTile(
             leading: const Icon(Icons.album_outlined),
             title: const Text(aboutUs),
             onTap: aboutOnTap),
@@ -99,7 +93,7 @@ void Function()? historyOnTap,
         ListTile(
             leading: const Icon(Icons.question_mark_outlined),
             title: const Text(helpAndSupport),
-            onTap: historyOnTap),
+            onTap: helpOnTap),
         const Divider(
           color: black,
           thickness: 0.1,

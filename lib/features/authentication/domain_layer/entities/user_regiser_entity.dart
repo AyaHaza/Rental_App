@@ -1,12 +1,14 @@
 
-class UserRegisterEntity {
-  String? firstName;
-  String? lastName;
-  String? phone;
-  String? username;
-  DateTime? birthDate;
-  String? password;
-  String? confirmPassword;
+import 'package:equatable/equatable.dart';
+
+class UserRegisterEntity extends Equatable {
+  final String? firstName;
+  final String? lastName;
+  final String? phone;
+  final String? username;
+  final DateTime? birthDate;
+  final String? password;
+  final String? confirmPassword;
 
   UserRegisterEntity({
     this.firstName,
@@ -17,5 +19,17 @@ class UserRegisterEntity {
     this.password,
     this.confirmPassword,
   });
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [
+    firstName,
+    lastName,
+    phone,
+    username,
+    birthDate,
+    password,
+    confirmPassword
+  ];
 
 }

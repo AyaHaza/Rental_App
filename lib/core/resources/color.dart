@@ -16,5 +16,7 @@ const Color subtitleColor = Color(0xFFB8B8B8);
 const Color subtitleOnBordingColor = Color(0xFFA0A0A0);
 const Color darkYellowColor = Color(0xFFF57F17);
 const Color lightYellowColor = Color(0xFFFBC02D);
-const Color indigoAccent=Colors.indigoAccent;
+const Color blowColor=Color(0xFF304FFE);
+const Color indigoAccent= Colors.indigoAccent;
+const Color blue=Colors.blue;
 

@@ -90,19 +90,17 @@ class SetPassword extends StatelessWidget {
                           return const Text(signUp,style: TextStyle(fontSize: 30,color: white),);
                         }else if(state is LoadingState){
                           return const CupertinoActivityIndicator(color: white,);
-                        }else if(state is ErrorState){
+                        }else if(state is ErrorStatee){
                           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                             QuickAlert.show(
                               context: context,
                               type: QuickAlertType.error,
                               text: state.failure,
                                 confirmBtnColor: darkRedColor ,
-                              // autoCloseDuration: Duration(seconds: 30),
-
                             );
                           });
                           return const Text(signUp,style: TextStyle(fontSize: 30,color: white),);
-                        }else if(state is SuccessState){
+                        }else if(state is SuccessStatee){
                           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                             Navigator.pushNamed(context, '/Login');
                           });
@@ -116,6 +114,7 @@ class SetPassword extends StatelessWidget {
                       formKeyT.currentState!.save();
                       UserRegisterEntity userEntity=UserRegisterEntity(firstName: fitrstName,lastName: lastName,phone: mobail,username: userName,birthDate: birthDate,password: passwordController.text,confirmPassword: confirmPasswordController.text);
                       context.read<AuthBloc>().add(RegisterEvent(userEntity));
+                      context.read<AuthBloc>().add(AddProfileEvent(userEntity));
                     }),
                   ),
                 ],

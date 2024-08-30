@@ -7,6 +7,8 @@ class SuccessState extends MapStates{
   var data;
   SuccessState(this.data);
 }
+class SuccessBoolState extends MapStates{}
+
 class ErrorState extends MapStates{
   String failure;
   ErrorState(this.failure);

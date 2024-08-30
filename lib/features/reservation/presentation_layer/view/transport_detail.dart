@@ -1,24 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rental_clean_tdd/config/hive_config.dart';
+import 'package:rental_clean_tdd/features/favorite/presentation_layer/bloc/events.dart';
 import '../../../../config/responsive.dart';
 import '../../../../core/resources/color.dart';
 import '../../../../core/resources/padding.dart';
 import '../../../../core/resources/string.dart';
+import '../../../../core/resources/variable.dart';
 import '../../../../core/widgets_App/buttons_widget.dart';
 import '../../../../injection_container.dart';
+import '../../../favorite/presentation_layer/bloc/bloc.dart';
 import '../bloc/bloc.dart';
 import '../bloc/events.dart';
 import '../bloc/states.dart';
 
 class BicycleDetail extends StatelessWidget {
   final int bicycleId;
+  final ValueNotifier<bool> valueNotifierFav = ValueNotifier(true);
   BicycleDetail({required this.bicycleId});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ReservationBloc>(
-      create: (context) => sl()..add(getBicycleDetail(bicycleId)),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ReservationBloc>(create: (context) => sl()..add(getBicycleDetail(bicycleId)),),
+        BlocProvider<FavouriteBloc>(create: (context) => sl(),),
+      ],
       child: Scaffold(
         backgroundColor: white,
         body: Container( 
@@ -32,6 +40,14 @@ class BicycleDetail extends StatelessWidget {
                   children: [
                     IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(Icons.arrow_back_ios)),
                     const Text(back),
+                    Spacer(),
+                    ValueListenableBuilder(
+                        valueListenable: valueNotifierFav,
+                        builder: (context, value, child){
+                          print(userHive!.get('fav').toString());
+                          return (!userHive!.get('fav').toString().contains(bicycleId.toString()))?IconButton(onPressed: (){valueNotifierFav.value=!valueNotifierFav.value;userHive!.put('fav',[bicycleId]);context.read<FavouriteBloc>().add(AddToFavorite(bicycleId));}, icon: Icon(Icons.favorite_border,),):IconButton(onPressed: (){}, icon: Icon(Icons.favorite,color: darkRedColor,));
+                        }
+                    ),
                   ],
                 ),
               ),

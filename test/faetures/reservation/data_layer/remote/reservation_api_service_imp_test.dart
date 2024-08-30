@@ -26,7 +26,7 @@ void main(){
 
   final headers = <String, dynamic>{
     'accept':'*/*',
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpOTk5dHJpIiwiaWF0IjoxNzIzOTExMDA0LCJleHAiOjE3MjM5OTc0MDR9.QiuLOU9Sr9DIgDsgIvb48GAm0uiq5gDb6dA9POmuRIg'
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyODg3NzkxIiwiaWF0IjoxNzI0ODczODIxLCJleHAiOjE3MjQ5NjAyMjF9'
   };
 
   //--------------------------------------------------------------------------------------------------------------------

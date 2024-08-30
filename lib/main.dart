@@ -2,10 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'config/bloc_observe.dart';
 import 'config/hive_config.dart';
 import 'config/responsive.dart';
 import 'config/routes.dart';
+import 'core/resources/color.dart';
+import 'core/resources/variable.dart';
 import 'core/widgets_App/botton_navigation.dart';
 import 'features/authentication/presentation_layer/view/welcome.dart';
 import 'firebase_options.dart';
@@ -20,6 +23,10 @@ void main()async {
   await Hive.initFlutter();
   await setupHive();
   Bloc.observer = MyBlocObserver();
+  Supabase.initialize(
+    url: 'https://nlulvjtzewkhpsistuhf.supabase.co',
+    anonKey: apikeySupa,
+  );
   runApp(const MyApp());
 }
 
@@ -33,6 +40,16 @@ class MyApp extends StatelessWidget {
     // userHive!.delete("token");
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: white,
+            elevation: 0.0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16)
+            ),
+          ),
+          primaryIconTheme: IconThemeData(color: darkGreenColor)
+      ),
       onGenerateRoute: AppRoutes.onGenerateRoutes,
       title: 'Rental App',
       home: (userHive!.get("token")==null || userHive!.get("token")=='')?Welcome() : ButtomNavBar(),

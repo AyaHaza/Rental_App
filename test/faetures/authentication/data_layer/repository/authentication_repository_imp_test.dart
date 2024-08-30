@@ -77,4 +77,90 @@ void main(){
   });
 
 
+  group("register with gmail", (){
+    test("success API ", ()async{
+      when(mockAuthApiService.registerWithGamil()).thenAnswer((_)async{
+        return true;
+      });
+      final res=await authenticationRepositoryImp.registerWithGamil();
+      expect(res, Right(true));
+    });
+
+    test('no internet so return connection fauilare', ()async{
+      when(mockAuthApiService.registerWithGamil()).thenThrow(SocketException("Failed to connect to the network"));
+      final res=await authenticationRepositoryImp.registerWithGamil();
+      expect(res, Left(ConnectionFailure("Failed to connect to the network")));
+    });
+  });
+
+  group("add profile supa", (){
+    test("success API ", ()async{
+      when(mockAuthApiService.addprofileSupa(userRegisterEntity)).thenAnswer((_)async{
+        return true;
+      });
+      final res=await authenticationRepositoryImp.addprofileSupa(userRegisterEntity);
+      expect(res, Right(true));
+    });
+
+    test("failure API so return server fauilare", ()async{
+      when(mockAuthApiService.addprofileSupa(userRegisterEntity)).thenThrow(ServerException('An error has occurred'));
+      final res=await authenticationRepositoryImp.addprofileSupa(userRegisterEntity);
+      expect(res, Left(ServerFailure('An error has occurred')));
+    });
+
+    test('no internet so return connection fauilare', ()async{
+      when(mockAuthApiService.addprofileSupa(userRegisterEntity)).thenThrow(SocketException("Failed to connect to the network"));
+      final res=await authenticationRepositoryImp.addprofileSupa(userRegisterEntity);
+      expect(res, Left(ConnectionFailure("Failed to connect to the network")));
+    });
+  });
+
+  group("edit profile supa", (){
+    test("success API ", ()async{
+      when(mockAuthApiService.editprofileSupa(userRegisterEntity)).thenAnswer((_)async{
+        return true;
+      });
+      final res=await authenticationRepositoryImp.editprofileSupa(userRegisterEntity);
+      expect(res, Right(true));
+    });
+
+    test("failure API so return server fauilare", ()async{
+      when(mockAuthApiService.editprofileSupa(userRegisterEntity)).thenThrow(ServerException('An error has occurred'));
+      final res=await authenticationRepositoryImp.editprofileSupa(userRegisterEntity);
+      expect(res, Left(ServerFailure('An error has occurred')));
+    });
+
+    test('no internet so return connection fauilare', ()async{
+      when(mockAuthApiService.editprofileSupa(userRegisterEntity)).thenThrow(SocketException("Failed to connect to the network"));
+      final res=await authenticationRepositoryImp.editprofileSupa(userRegisterEntity);
+      expect(res, Left(ConnectionFailure("Failed to connect to the network")));
+    });
+  });
+
+
+  group("get profile supa", (){
+    test("success API ", ()async{
+      when(mockAuthApiService.getprofileSupa('hala123096')).thenAnswer((_)async{
+        return userRegisterEntity;
+      });
+      final res=await authenticationRepositoryImp.getprofileSupa('hala123096');
+      expect(res, Right(userRegisterEntity));
+    });
+
+    test("failure API so return server fauilare", ()async{
+      when(mockAuthApiService.getprofileSupa('hala123096')).thenThrow(ServerException('An error has occurred'));
+      final res=await authenticationRepositoryImp.getprofileSupa('hala123096');
+      expect(res, Left(ServerFailure('An error has occurred')));
+    });
+
+    test('no internet so return connection fauilare', ()async{
+      when(mockAuthApiService.getprofileSupa('hala123096')).thenThrow(SocketException("Failed to connect to the network"));
+      final res=await authenticationRepositoryImp.getprofileSupa('hala123096');
+      expect(res, Left(ConnectionFailure("Failed to connect to the network")));
+    });
+  });
+
+
+
+
 }

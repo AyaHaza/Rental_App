@@ -4,24 +4,30 @@ import 'package:rental_clean_tdd/features/map/domain_layer/entities/hubs_entity.
 
 void main(){
   HubsModel hubsModel=HubsModel(
-      id: 1,
       name: 'nmae',
       latitude: 1.1,
       longitude: 1.1,
       description: 'description'
   );
   final expextedJsonMap={
-    'id': 1,
     'name': 'nmae',
     'latitude': 1.1,
     'longitude': 1.1,
     'description': 'description'
   };
 
+  final expextedEntity= HubsEntity(
+      name: 'nmae',
+      latitude: 1.1,
+      longitude: 1.1,
+      description: 'description'
+  );
+
   test("HubsModel is subclass of HubsEntity", ()async{
     expect(hubsModel, isA<HubsEntity>());
   });
 
+  //test to json
   test("return a json map", ()async{
     final res=hubsModel.toJson();
     expect(res, expextedJsonMap);
@@ -33,6 +39,14 @@ void main(){
         final res=HubsModel.fromJson(expextedJsonMap);
         expect(res,hubsModel);
       }
+  );
+
+  //test from entity
+  test(
+      "should be return a vaild from entity ", ()async{
+    final res=HubsModel.fromEntity(expextedEntity);
+    expect(res,hubsModel);
+  }
   );
 
 }

@@ -125,7 +125,7 @@ class _LoginState extends State<Login> {
                           return const Text(signIn,style: TextStyle(fontSize: 30,color: white),);
                         }else if(state is LoadingState){
                           return const CupertinoActivityIndicator(color: white,);
-                        }else if(state is ErrorState){
+                        }else if(state is ErrorStatee){
                           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                             QuickAlert.show(
                               context: context,
@@ -135,7 +135,7 @@ class _LoginState extends State<Login> {
                             );
                           });
                           return const Text(signIn,style: TextStyle(fontSize: 30,color: white),);
-                        }else if(state is SuccessState){
+                        }else if(state is SuccessStatee){
                           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                             Navigator.pushNamed(context, '/ButtomNavBar');
                             QuickAlert.show(

@@ -188,9 +188,9 @@ class _RegisterState extends State<Register> {
                           );
                         }else if(state is LoadingState){
                           return const CupertinoActivityIndicator(color: darkGreenColor,);
-                        }else if(state is ErrorState){
+                        }else if(state is ErrorStatee){
                           return  Text(state.failure,style: TextStyle(fontSize: 30,color: darkRedColor),);
-                        }else if(state is SuccessState){
+                        }else if(state is SuccessStatee){
                           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                             Navigator.pushNamed(context, '/ButtomNavBar');
                             QuickAlert.show(

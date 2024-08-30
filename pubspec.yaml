@@ -54,6 +54,10 @@ dependencies:
   flutter_map_math: ^0.1.7
   get_it: ^7.7.0
   http_mock_adapter: ^0.6.1
+  flutter_osm_plugin: ^0.70.4
+  flutter_expandable_fab: ^2.2.0
+  supabase_flutter: ^2.6.0
+  image_picker: ^1.1.2
 
 dev_dependencies:
   bloc_test: ^9.1.7

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rental_clean_tdd/features/reservation/presentation_layer/view/transport_detail.dart';
 import '../../../../config/responsive.dart';
 import '../../../../core/resources/color.dart';
 import '../../../../core/resources/padding.dart';
@@ -50,8 +51,8 @@ class SlectAvailableTransport extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: leftAndRightPadding(0.06,0.02),
-                                child: Text('${state.data.body.length} $carsFound ',style: TextStyle(fontSize:18 ,color: subtitleColor),),
+                                padding: leftAndRightAndTBottomPadding(0.06,0.02,0.01),
+                                child: Text('${state.data.body.length} $bicycleFound ',style: TextStyle(fontSize:18 ,color: subtitleColor),),
                               ),
                               Container(
                                 height: screenHight*0.78,
@@ -59,8 +60,8 @@ class SlectAvailableTransport extends StatelessWidget {
                                   itemCount: state.data.body.length,
                                   itemBuilder: (context, index) {
                                     return Container(
-                                      height: screenHight*0.2,
-                                      margin: leftAndRightAndTopPadding(0.02, 0.02,0.03),
+                                      height: screenHight*0.134,
+                                      margin: leftAndRightAndTopPadding(0.02, 0.02,0.01),
                                       decoration: BoxDecoration(
                                           color: lightGreenColor,
                                           borderRadius: BorderRadius.circular(12),
@@ -111,7 +112,6 @@ class SlectAvailableTransport extends StatelessWidget {
                                                   ),child: Image.network('https://${state.data.body[index].photoPath}',fit: BoxFit.fill)))
                                             ],
                                           ),
-                                          ButtonCustom(0, screenWidth*0.9, screenHight*0.05, Text(viewBicyleList,style: TextStyle(fontSize: 20,color: darkGreenColor),), lightGreenColor, darkGreenColor, (){})
                                         ],
                                       ),
                                     );

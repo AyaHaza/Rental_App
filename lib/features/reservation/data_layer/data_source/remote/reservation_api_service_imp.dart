@@ -25,10 +25,15 @@ class ReservationApiServiceImp implements ReservationApiService{
       print(baseUrl+getBicycleCategoryApi);
       Response responsee =await dio.get(
           baseUrl+getBicycleCategoryApi,
-          options: Options(
+          options: (userHive==null)?Options(
               headers: {
                 'accept':'*/*',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpOTk5dHJpIiwiaWF0IjoxNzIzOTExMDA0LCJleHAiOjE3MjM5OTc0MDR9.QiuLOU9Sr9DIgDsgIvb48GAm0uiq5gDb6dA9POmuRIg'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyODg3NzkxIiwiaWF0IjoxNzI0ODczODIxLCJleHAiOjE3MjQ5NjAyMjF9'
+              }
+          ):Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization':'Bearer ${userHive!.get("token")}'
               }
           )
       );
@@ -55,10 +60,15 @@ class ReservationApiServiceImp implements ReservationApiService{
       print('$baseUrl$getBicycleByCategoryApi?category=$category');
       Response responsee =await dio.get(
           '$baseUrl$getBicycleByCategoryApi?category=$category',
-          options: Options(
+          options: (userHive==null)?Options(
               headers: {
                 'accept':'*/*',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpOTk5dHJpIiwiaWF0IjoxNzIzOTExMDA0LCJleHAiOjE3MjM5OTc0MDR9.QiuLOU9Sr9DIgDsgIvb48GAm0uiq5gDb6dA9POmuRIg'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyODg3NzkxIiwiaWF0IjoxNzI0ODczODIxLCJleHAiOjE3MjQ5NjAyMjF9'
+              }
+          ):Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization':'Bearer ${userHive!.get("token")}'
               }
           )
       );
@@ -85,10 +95,15 @@ class ReservationApiServiceImp implements ReservationApiService{
       print('$baseUrl$getHubContentApi$hubId?bicycleCategory=$category');
       Response responsee =await dio.get(
           '$baseUrl$getHubContentApi$hubId?bicycleCategory=$category',
-          options: Options(
+          options: (userHive==null)?Options(
               headers: {
                 'accept':'*/*',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpOTk5dHJpIiwiaWF0IjoxNzIzOTExMDA0LCJleHAiOjE3MjM5OTc0MDR9.QiuLOU9Sr9DIgDsgIvb48GAm0uiq5gDb6dA9POmuRIg'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyODg3NzkxIiwiaWF0IjoxNzI0ODczODIxLCJleHAiOjE3MjQ5NjAyMjF9'
+              }
+          ):Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization':'Bearer ${userHive!.get("token")}'
               }
           )
       );
@@ -115,10 +130,15 @@ class ReservationApiServiceImp implements ReservationApiService{
       print('$baseUrl$getPhoto');
       Response responsee =await dio.get(
           '$baseUrl$getPhoto',
-          options: Options(
+          options: (userHive==null)?Options(
               headers: {
                 'accept':'*/*',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpOTk5dHJpIiwiaWF0IjoxNzIzOTExMDA0LCJleHAiOjE3MjM5OTc0MDR9.QiuLOU9Sr9DIgDsgIvb48GAm0uiq5gDb6dA9POmuRIg'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyODg3NzkxIiwiaWF0IjoxNzI0ODczODIxLCJleHAiOjE3MjQ5NjAyMjF9'
+              }
+          ):Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization':'Bearer ${userHive!.get("token")}'
               }
           )
       );
@@ -145,10 +165,15 @@ class ReservationApiServiceImp implements ReservationApiService{
       print('$baseUrl$getBicycleDetailsApi$bicycleId');
       Response responsee =await dio.get(
           '$baseUrl$getBicycleDetailsApi/$bicycleId',
-          options: Options(
+          options: (userHive==null)?Options(
               headers: {
                 'accept':'*/*',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpOTk5dHJpIiwiaWF0IjoxNzIzOTExMDA0LCJleHAiOjE3MjM5OTc0MDR9.QiuLOU9Sr9DIgDsgIvb48GAm0uiq5gDb6dA9POmuRIg'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyODg3NzkxIiwiaWF0IjoxNzI0ODczODIxLCJleHAiOjE3MjQ5NjAyMjF9'
+              }
+          ):Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization':'Bearer ${userHive!.get("token")}'
               }
           )
       );

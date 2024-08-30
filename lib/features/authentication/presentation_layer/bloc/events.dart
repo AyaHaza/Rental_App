@@ -11,3 +11,15 @@ class LoginEvent extends AuthEvents{
 }
 class RegisterWithGmailEvent extends AuthEvents{}
 class RegisterWithFacebookEvent extends AuthEvents{}
+class ProfileEvent extends AuthEvents{
+  String username;
+  ProfileEvent(this.username);
+}
+class AddProfileEvent extends AuthEvents{
+  var userEntity;
+  AddProfileEvent(this.userEntity);
+}
+class EditProfileEvent extends AuthEvents{
+  var userEntity;
+  EditProfileEvent(this.userEntity);
+}

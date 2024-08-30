@@ -6,11 +6,13 @@ import '../../../../core/resources/assets.dart';
 import '../../../../core/resources/color.dart';
 import '../../../../core/resources/padding.dart';
 import '../../../../core/resources/string.dart';
+import '../../../../core/widgets_App/buttons_widget.dart';
 import '../../../../injection_container.dart';
 import '../bloc/bloc.dart';
 import '../bloc/events.dart';
 import '../bloc/states.dart';
-import 'show_or_rental4.dart';
+import 'hub_content.dart';
+import 'select_avaialble_transport.dart';
 
 class SelectTransport extends StatelessWidget {
   int hubId;
@@ -55,10 +57,10 @@ class SelectTransport extends StatelessWidget {
                             height: screenHight*0.78,
                             child: GridView.builder(
                               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                                  maxCrossAxisExtent: 200,
+                                  maxCrossAxisExtent:200,
                                   childAspectRatio: 2 / 2,
-                                  crossAxisSpacing: 14,
-                                  mainAxisSpacing: 14
+                                  crossAxisSpacing: 12,
+                                  mainAxisSpacing: 12
                               ),
                               itemCount: state.data.body.length,
                               itemBuilder: (BuildContext ctx, index) {
@@ -75,13 +77,39 @@ class SelectTransport extends StatelessWidget {
                                       children: [
                                         Image.asset(cycleImage),
                                         Text(state.data.body[index]),
+
+                                            Padding(
+                                              padding: onlyTopPadding(0.024),
+                                              child: Row(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Center(child: ButtonCustom(0, screenWidth*0.19, screenHight*0.0, Text('rental',style: TextStyle(color: indigoAccent,fontSize: 14),), lightGreenColor, lightGreenColor, (){
+                                                    Navigator.pushNamed(context,'/HubContent',arguments: HubContent(
+                                                      nameTransport:state.data.body[index],
+                                                      hubId: hubId,
+                                                    ),);
+                                                  })),
+                                                  Center(
+                                                    child: ButtonCustom(0, screenWidth*0.19, screenHight*0.01, Text('show',style: TextStyle(color: darkRedColor,fontSize: 14)), lightGreenColor, lightGreenColor, (){
+                                                      Navigator.pushNamed(context, '/SlectAvailableTransport',arguments: SlectAvailableTransport(
+                                                        nameTransport:state.data.body[index],
+                                                      ));
+                                                    }),
+                                                  )
+                                                ],
+                                              ),
+                                            )
+
                                       ],
                                     ),
                                   ),
-                                  onTap: (){Navigator.pushNamed(context,'/ShowOrRental',arguments: ShowOrRental(
-                                    nameTransport:state.data.body[index],
-                                    hubId: hubId,
-                                  ),);},
+                                  onTap: (){
+                                  //   Navigator.pushNamed(context,'/ShowOrRental',arguments: ShowOrRental(
+                                  //   nameTransport:state.data.body[index],
+                                  //   hubId: hubId,
+                                  // ),);
+                                    },
                                 );
                               }
                             ),

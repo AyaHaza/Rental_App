@@ -22,6 +22,16 @@ class UserRegisterModel extends UserRegisterEntity {
     confirmPassword: json.confirmPassword,
   );
 
+  factory UserRegisterModel.fromJsonMap(Map<String, dynamic> json) => UserRegisterModel(
+    firstName: json['firstName'],
+    lastName: json['lastName'],
+    phone: json['phone'],
+    username: json['username'],
+    birthDate: DateTime.parse(json['birthDate'].toString()),
+    password: json['password'],
+    confirmPassword: json['confirmPassword'],
+  );
+
   Map<String, dynamic> toJson() => {
     "firstName": firstName,
     "lastName": lastName,

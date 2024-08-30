@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
 class HubsEntity extends Equatable{
-  int? id;
-  String? name;
-  double? latitude;
-  double? longitude;
-  String? description;
+  final int? id;
+  final String? name;
+  final double? latitude;
+  final double? longitude;
+  final String? description;
 
   HubsEntity({
      this.id,

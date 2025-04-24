@@ -63,6 +63,14 @@ import 'features/reservation/domain_layer/usecases/get_hub_content_usecase.dart'
 import 'features/reservation/domain_layer/usecases/get_photo_usecase.dart';
 import 'features/reservation/presentation_layer/bloc/bloc.dart';
 import 'features/reservation/presentation_layer/bloc/photo_bloc.dart';
+import 'features/setting/data_layer/data_source/remote/setting_api_service.dart';
+import 'features/setting/data_layer/data_source/remote/setting_api_service_imp.dart';
+import 'features/setting/data_layer/repository/setting_repository_imp.dart';
+import 'features/setting/domain_layer/repository/setting_repository.dart';
+import 'features/setting/domain_layer/usecases/change_password_usecase.dart';
+import 'features/setting/domain_layer/usecases/contact_us_usecase.dart';
+import 'features/setting/domain_layer/usecases/get_policy_usecase.dart';
+import 'features/setting/presentation_layer/bloc/bloc.dart';
 import 'features/wallet/data_layer/data_source/remote/wallet_api_service.dart';
 import 'features/wallet/data_layer/data_source/remote/wallet_api_service_imp.dart';
 import 'features/wallet/data_layer/repository/wallet_repository_imp.dart';
@@ -150,6 +158,7 @@ Future <void> initializeDependencies()async{
   sl.registerSingleton<AddToFavoriteUsecase>(AddToFavoriteUsecase(sl()));
   sl.registerFactory<FavouriteBloc>(()=>FavouriteBloc(sl(),sl()));
 
+
   //history
   sl.registerSingleton<HistoryApiService>(HistoryApiServiceImp(sl()));
   sl.registerSingleton<HistoryRepository>(HistoryRepositoryImp(sl()));
@@ -157,5 +166,14 @@ Future <void> initializeDependencies()async{
   sl.registerSingleton<DeleteHistorySupaUsecase>(DeleteHistorySupaUsecase(sl()));
   sl.registerSingleton<GetHistorySupaUsecase>(GetHistorySupaUsecase(sl()));
   sl.registerFactory<HistoryBloc>(()=>HistoryBloc(sl(),sl(),sl()));
+
+
+  //setting
+  sl.registerSingleton<SettingApiService>(SettingApiServiceImp(sl()));
+  sl.registerSingleton<SettingRepository>(SettingRepositoryImp(sl()));
+  sl.registerSingleton<ChangePasswordUsecase>(ChangePasswordUsecase(sl()));
+  sl.registerSingleton<ContactUsUsecase>(ContactUsUsecase(sl()));
+  sl.registerSingleton<GetPolicyUsecase>(GetPolicyUsecase(sl()));
+  sl.registerFactory<SettingBloc>(()=>SettingBloc(sl(),sl(),sl()));
 
 }

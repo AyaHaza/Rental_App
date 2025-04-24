@@ -124,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           Padding(
                             padding: leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.04, 0.02),
-                            child: ButtonCustom(0,0, screenHight*0.06, const Text(edit,style: TextStyle(fontSize: 26,color: white),), darkGreenColor, darkGreenColor, (){
+                            child: ButtonCustom(0,0, screenHight*0.06, const Text(edit,style: TextStyle(fontSize: 20,color: white),), darkGreenColor, darkGreenColor, (){
                               // if (!formKey.currentState!.validate()) {
                               //   return;
                               // }

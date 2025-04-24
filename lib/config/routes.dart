@@ -19,6 +19,12 @@ import '../features/reservation/presentation_layer/view/hub_content.dart';
 import '../features/reservation/presentation_layer/view/select_avaialble_transport.dart';
 import '../features/reservation/presentation_layer/view/select_transport.dart';
 import '../features/reservation/presentation_layer/view/transport_detail.dart';
+import '../features/setting/presentation_layer/view/changeLanguage.dart';
+import '../features/setting/presentation_layer/view/changePassword.dart';
+import '../features/setting/presentation_layer/view/contactus_screen.dart';
+import '../features/setting/presentation_layer/view/deleteAccount_screen.dart';
+import '../features/setting/presentation_layer/view/policy_screen.dart';
+import '../features/setting/presentation_layer/view/setting_screen.dart';
 import '../features/wallet/presentaion_layer/view/wallet_info_and_code.dart';
 
 
@@ -125,25 +131,24 @@ class AppRoutes {
       case '/History':
         return _materialRoute(settings,History());
 
-      //
-      // case '/Setting':
-      //   return _materialRoute(settings, const SettingScreen());
-      //
-      // case '/ChangePassword':
-      //   return _materialRoute(settings, const Changepassword());
-      //
-      // case '/Changelanguage':
-      //   return _materialRoute(settings, const Changelanguage());
-      //
-      // case '/PolicyScreen':
-      //   return _materialRoute(settings, const PolicyScreen());
-      //
-      // case '/ContactusScreen':
-      //   return _materialRoute(settings, const ContactusScreen());
-      //
-      // case '/DeleteaccountScreen':
-      //   return _materialRoute(settings, const DeleteaccountScreen());
-      //
+      case '/Setting':
+        return _materialRoute(settings, const SettingScreen());
+
+      case '/ChangePassword':
+        return _materialRoute(settings, const Changepassword());
+
+      case '/Changelanguage':
+        return _materialRoute(settings, const Changelanguage());
+
+      case '/PolicyScreen':
+        return _materialRoute(settings, const PolicyScreen());
+
+      case '/ContactusScreen':
+        return _materialRoute(settings, const ContactusScreen());
+
+      case '/DeleteaccountScreen':
+        return _materialRoute(settings, const DeleteaccountScreen());
+
       case '/HelpAndSupport':
         return _materialRoute(settings,  HelpAndSupport());
 

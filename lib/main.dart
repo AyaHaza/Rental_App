@@ -37,7 +37,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     initResponsive(context);
     print(userHive!.get("token"));
+    // userHive!.delete("username");
     // userHive!.delete("token");
+    // userHive!.delete("fav");
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

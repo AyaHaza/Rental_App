@@ -3,12 +3,10 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
-import 'package:rental_clean_tdd/core/error/exception.dart';
-import 'package:rental_clean_tdd/features/history/domain_layer/entities/history_entity.dart';
 import '../../../../../config/hive_config.dart';
+import '../../../../../core/error/exception.dart';
 import '../../../../../core/resources/variable.dart';
 import '../../../domain_layer/entities/hubs_entity.dart';
-import '../../../../history/data_layer/models/history_model.dart';
 import '../../models/hubs_model.dart';
 import 'map_api_service.dart';
 

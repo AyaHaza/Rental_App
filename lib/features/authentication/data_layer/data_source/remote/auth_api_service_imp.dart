@@ -25,6 +25,7 @@ class AuthApiServiceImp implements AuthApiService{
           data: _data
       );
       print(responsee.statusCode);
+      // userHive!.put("username",username);
       return true;
     }on DioException catch (e) {
       if(e.response == null){
@@ -82,9 +83,9 @@ class AuthApiServiceImp implements AuthApiService{
   @override
   Future <UserRegisterModel>getprofileSupa(usernamee) async{
     try{
-      print('${apiTableProfile}?username=eq.${(userHive==null)?'asqqqqwf3fwq':{userHive!.get("username")}}');
+      print('${apiTableProfile}?username=eq.${(userHive==null)?'asqqqqwf3fwq':userHive!.get("username")}');
       Response responsee=await dio.get(
-          '${apiTableProfile}?username=eq.${(userHive==null)?'asqqqqwf3fwq':{userHive!.get("username")}}',
+          '${apiTableProfile}?username=eq.${(userHive==null)?'asqqqqwf3fwq':userHive!.get("username")}',
           options: Options(
               headers: {
                 'apikey':apikeySupa
@@ -94,7 +95,6 @@ class AuthApiServiceImp implements AuthApiService{
       print(responsee.statusCode);
       print(responsee.data);
       var userProfile=UserRegisterModel.fromJsonMap(responsee.data[0]);
-
       print(userProfile);
         return userProfile;
     }catch(e){
@@ -163,6 +163,7 @@ class AuthApiServiceImp implements AuthApiService{
   Future <bool> registerWithGamil()async{
     try{
       await googleSignIn.signIn();
+      user=googleSignIn;
       isGoogle=true;
       print(googleSignIn.currentUser?.authHeaders);
       return true;

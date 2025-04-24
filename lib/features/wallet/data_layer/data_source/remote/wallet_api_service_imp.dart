@@ -24,24 +24,36 @@ class WalletApiServiceImp implements WalletApiService{
       Response responsee = await dio.post(
           baseUrl + WalletInfo,
           data: _data,
-          options: Options(headers: {
-            'accept': '*/*',
-            'Authorization': 'Bearer ${userHive!.get("token")}'
-          }),
+          options:(userHive==null)?Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyODg3NzkxIiwiaWF0IjoxNzI0ODczODIxLCJleHAiOjE3MjQ5NjAyMjF9'
+              }
+          ):Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization':'Bearer ${userHive!.get("token")}'
+              }
+          )
        );
       print(responsee.statusCode);
-      userHive!.put('haveWallet', 'yes');
+      if(userHive==null){}else{
+        userHive!.put('haveWallet', 'yes');
+      }
       return true;
     } on DioException catch (e) {
+      if(e.response == null){
+        throw DioException(requestOptions: RequestOptions());
+      }
       print(e.response!.data["message"]);
       var msg = e.response!.data["message"];
       if (msg is List) {
         String temp = '';
         for (String s in msg) temp += s + '\n';
         throw ServerException(temp);
-      } else if (msg is String) {
+      } else if(msg is String){
         throw ServerException(msg);
-      } else {
+      }else{
         throw SocketException("Failed to connect to the network");
       }
     }
@@ -52,10 +64,18 @@ class WalletApiServiceImp implements WalletApiService{
     try {
       Response responsee = await dio.get(
           baseUrl + WalletInfo + getAllvalidapi,
-          options: Options(headers: {
-            'accept': '*/*',
-            'Authorization': 'Bearer ${userHive!.get("token")}'
-          }));
+          options:(userHive==null)?Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyODg3NzkxIiwiaWF0IjoxNzI0ODczODIxLCJleHAiOjE3MjQ5NjAyMjF9'
+              }
+          ):Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization':'Bearer ${userHive!.get("token")}'
+              }
+          )
+      );
       print(responsee.statusCode);
       if (responsee.statusCode == 200) {
         var getValidCodeModel = WalletValidCodeModel.fromJson(responsee.data);
@@ -74,10 +94,18 @@ class WalletApiServiceImp implements WalletApiService{
     try {
       Response responsee = await dio.get(
           baseUrl + WalletInfo,
-          options: Options(headers: {
-            'accept': '*/*',
-            'Authorization': 'Bearer ${userHive!.get("token")}'
-          }));
+          options:(userHive==null)?Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyODg3NzkxIiwiaWF0IjoxNzI0ODczODIxLCJleHAiOjE3MjQ5NjAyMjF9'
+              }
+          ):Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization':'Bearer ${userHive!.get("token")}'
+              }
+          )
+      );
       print(responsee.statusCode);
       if (responsee.statusCode == 200) {
         var getWalletInfo = WalletInfoModel.fromJson(responsee.data);
@@ -97,15 +125,22 @@ class WalletApiServiceImp implements WalletApiService{
       final _data = jsonEncode(BalanceModel.fromEntity(balanceEntity));
       Response responsee = await dio.put(
           baseUrl + WalletInfo,
-          options: Options(headers: {
-            'accept': '*/*',
-            'Authorization': 'Bearer ${userHive!.get("token")}'
-          }),
+          options:(userHive==null)?Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyODg3NzkxIiwiaWF0IjoxNzI0ODczODIxLCJleHAiOjE3MjQ5NjAyMjF9'
+              }
+          ):Options(
+              headers: {
+                'accept':'*/*',
+                'Authorization':'Bearer ${userHive!.get("token")}'
+              }
+          ),
           data: _data
       );
       print(responsee.statusCode);
       return true;
-    } catch (e) {
+    }on DioException catch (e) {
       throw SocketException("Failed to connect to the network");
     }
   }

@@ -50,19 +50,19 @@ class AddHub extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: leftAndRightAndTBottomPadding(0.04,0.02,0.02),
+                      padding: leftAndRightAndTBottomPadding(0.36,0.02,0.04),
                       child: const Text(addHub,style: TextStyle(fontSize:32 ,fontWeight: FontWeight.w500),),
                     ),
                     Padding(
-                      padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
+                      padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.01),
                       child: TextFieldCustom(white, const SizedBox(),const SizedBox(), nameHub, nameController, TextInputType.name, 1,(v){},(){},false),
                     ),
                     Padding(
-                      padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
+                      padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.0,0.01),
                       child: TextFieldCustom(white, const SizedBox(),const SizedBox(), desecriptionHub, desecriptionController, TextInputType.name, 1,(v){},(){},false),
                     ),
                     Padding(
-                      padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
+                      padding: leftAndRightAndTBottomPadding(0.02,0.0,0.01),
                       child: Row(
                         children: [
                           Container(width: screenWidth*0.76,child: TextFieldCustom(white, const SizedBox(),const SizedBox(), latLongHub, latLongController, TextInputType.name, 1,(v){},(){},false)),
@@ -96,7 +96,7 @@ class AddHub extends StatelessWidget {
                         if(state is SuccessState){
                           return (state.data.isEmpty)?
                           Padding(
-                            padding: leftAndRightAndTBottomPadding(0.04,0.02,0.02),
+                            padding: leftAndRightAndTBottomPadding(0.02,0.02,0.02),
                             child: Text(noAddress),
                           ):
                           Container(
@@ -123,10 +123,10 @@ class AddHub extends StatelessWidget {
                       alignment:Alignment.bottomCenter,
                       child: Padding(
                         padding: leftAndRightAndTopPadding(0.0,0.0,0.04),
-                        child: ButtonCustom(0,screenWidth*0.3, screenHight*0.06, BlocBuilder<MapHubsSupaBloc,MapStates>(
+                        child: ButtonCustom(0,screenWidth*0.96, screenHight*0.06, BlocBuilder<MapHubsSupaBloc,MapStates>(
                           builder:(context, state) {
                             if(state is InitialState|| state is SuccessState){
-                              return const Text(add,style: TextStyle(fontSize: 30,color: white),);
+                              return const Text(add,style: TextStyle(fontSize: 20,color: white),);
                             }else if(state is ErrorState){
                               WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                                 QuickAlert.show(

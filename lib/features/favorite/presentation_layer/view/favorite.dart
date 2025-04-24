@@ -21,41 +21,6 @@ class FavoriteScreen extends StatelessWidget {
       child: Builder(builder: (context) {
         return Scaffold(
           backgroundColor: white,
-          // drawer: (isGoogle == true)
-          //     ? DrawerCustom(
-          //     user.currentUser!.displayName!,
-          //     user.currentUser!.email,
-          //     NetworkImage(user.currentUser!.photoUrl),
-          //         () {},
-          //         () {}, () {
-          //   Navigator.pushNamed(context, '/HelpandsupportScreen');
-          // }, () {
-          //   Navigator.pushNamed(context, '/AboutusScreen');
-          // }, () {
-          //   Navigator.pushNamed(context, '/Setting');
-          // }, () {
-          //   Navigator.pushNamed(context, '/HelpandsupportScreen');
-          // }, () async {
-          //   userHive!.delete("token");
-          //   if (isGoogle == true) {
-          //     await user.disconnect();
-          //   }
-          //
-          //   Navigator.pushNamed(context, '/Register');
-          // })
-          //     : DrawerCustom('user Name', 'userEmail@gmail.com',
-          //     const AssetImage(boyImage), () {}, () {}, () {
-          //       Navigator.pushNamed(context, '/HelpandsupportScreen');
-          //     }, () {
-          //       Navigator.pushNamed(context, '/AboutusScreen');
-          //     }, () {
-          //       Navigator.pushNamed(context, '/Setting');
-          //     }, () {
-          //       Navigator.pushNamed(context, '/HelpandsupportScreen');
-          //     }, () async {
-          //       userHive!.delete("token");
-          //       Navigator.pushNamed(context, '/Register');
-          //     }),
           body: Padding(
             padding: onlyTopPadding(0.06),
             child: ListView(

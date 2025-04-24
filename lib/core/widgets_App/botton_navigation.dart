@@ -46,7 +46,7 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
             drawer:(isGoogle==true)? DrawerCustom(user.currentUser!.displayName!,user.currentUser!.email,NetworkImage(user.currentUser!.photoUrl),
                     (){Navigator.pushNamed(context, '/History');},
                     (){Navigator.pushNamed(context, '/AboutusScreen');},
-                    (){},
+                    (){Navigator.pushNamed(context, '/Setting');},
                     (){Navigator.pushNamed(context, '/HelpAndSupport');},
                     ()async{if(isGoogle==true){await user.disconnect();userHive!.delete("haveWallet");};Navigator.pushNamed(context, '/Register');userHive!.delete("haveWallet"); }):
             BlocBuilder<AuthBloc,AuthStates>(
@@ -55,7 +55,7 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
                     return DrawerCustom(state.data.firstName,'${state.data.username}@gmail.com',AssetImage(boyImage),
                             (){Navigator.pushNamed(context, '/History');},
                             (){Navigator.pushNamed(context, '/AboutusScreen');},
-                            (){},
+                            (){Navigator.pushNamed(context, '/Setting');},
                             (){Navigator.pushNamed(context, '/HelpAndSupport');},
                             ()async{ Navigator.pushNamed(context, '/Register');userHive!.delete("haveWallet"); });
                   }return SizedBox();

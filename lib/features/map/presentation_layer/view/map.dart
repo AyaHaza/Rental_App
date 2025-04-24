@@ -64,8 +64,6 @@ class MapScreen extends StatelessWidget {
                                 initialCenter: LatLng(33.510414,36.278336),
                                 initialZoom: 15.0,
                                 onTap: (tapPosition, point) {
-
-
                                 },
                               ),
                               children: [

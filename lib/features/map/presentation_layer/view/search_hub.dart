@@ -38,7 +38,6 @@ class SraechHub extends StatelessWidget {
     allHubs.add('Your location');
     allHubs.addAll(List.generate(hubs.length, (index) => hubs[index].name,));
     allHubs.addAll(List.generate(hubsSupa.length, (index) => hubsSupa[index].name,));
-    print(hubsSupa.first);
     return BlocProvider<HistoryBloc>(
       create: (context) => sl()..add(GetHistoryEvent()),
       child: Builder(
@@ -99,11 +98,9 @@ class SraechHub extends StatelessWidget {
                                   Padding(
                                     padding: onlyBottomPadding(0.02),
                                     child: DropDown(chooseStartLocation,start,List.generate(allHubs.length, (index) {
-                                      print(start.text);
                                       return allHubs[index];})),
                                   ),
                                   DropDown(chooseDestinationLocation,destination,List.generate(allHubs.length, (index) {
-                                    print(destination.text);
                                     return allHubs[index];})),
                                 ],
                               ),
@@ -224,6 +221,7 @@ class SraechHub extends StatelessWidget {
                                 }
                               }, listener: (BuildContext context, HistoryStates state) {
                               if(state is SuccessBoolState){
+                                //after delete history
                                 context.read<HistoryBloc>().add(GetHistoryEvent());
                               }
                             },

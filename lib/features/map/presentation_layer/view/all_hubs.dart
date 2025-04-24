@@ -77,7 +77,10 @@ class AllHubs extends StatelessWidget {
                                             // color: Colors.orange,
                                             child: Row(
                                               children: [
-                                                IconButton(onPressed: (){
+                                                (state.data.contains(hubs[index]))? Padding(
+                                                  padding: leftAndRightPadding(0.03,0.03),
+                                                  child: Icon(Icons.edit_location_alt,color: subtitleColor),
+                                                ):IconButton(onPressed: (){
                                                   Navigator.pushNamed(context,'/EditHub',arguments: EditHub(
                                                     id: hubs[index].id,
                                                     name: hubs[index].name,

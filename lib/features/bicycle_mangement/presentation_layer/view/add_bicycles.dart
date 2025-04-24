@@ -58,23 +58,23 @@ class _AddBicycleState extends State<AddBicycle> {
                           ),
                         ),
                         Padding(
-                          padding: leftAndRightAndTBottomPadding(0.04,0.02,0.02),
+                          padding: leftAndRightAndTBottomPadding(0.3,0.02,0.05),
                           child: const Text(addBicyle,style: TextStyle(fontSize:32 ,fontWeight: FontWeight.w500),),
                         ),
                         Padding(
-                          padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
+                          padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.01,0.01),
                           child: TextFieldCustom(white, const SizedBox(),const SizedBox(), modelName, modelController, TextInputType.name, 1,(v){},(){},false),
                         ),
                         Padding(
-                          padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
+                          padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.0,0.01),
                           child: TextFieldCustom(white, const SizedBox(),const SizedBox(), priceBicycle, priceController, TextInputType.number, 1,(v){},(){},false),
                         ),
                         Padding(
-                          padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
+                          padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.0,0.01),
                           child: TextFieldCustom(white, const SizedBox(),const SizedBox(), sizeBicycle, sizeController, TextInputType.number, 1,(v){},(){},false),
                         ),
                         Padding(
-                          padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.018,0.018),
+                          padding:  leftAndRightAndTopAndTBottomPadding(0.02,0.02,0.0,0.01),
                           child: DropDown('       $typeBicycle',typeController,TypeItems),
                         ),
                         Padding(
@@ -110,10 +110,10 @@ class _AddBicycleState extends State<AddBicycle> {
                           alignment:Alignment.bottomCenter,
                           child: Padding(
                             padding: leftAndRightAndTopAndTBottomPadding(0.0,0.0,0.04, 0.02),
-                            child: ButtonCustom(0,screenWidth*0.3, screenHight*0.06, BlocBuilder<BicycleSupaBloc,BicycleStates>(
+                            child: ButtonCustom(0,screenWidth*0.96, screenHight*0.06, BlocBuilder<BicycleSupaBloc,BicycleStates>(
                               builder:(context, state) {
                                 if(state is InitialState){
-                                  return const Text(add,style: TextStyle(fontSize: 30,color: white),);
+                                  return const Text(add,style: TextStyle(fontSize: 20,color: white),);
                                 }else if(state is ErrorState){
                                   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                                     QuickAlert.show(

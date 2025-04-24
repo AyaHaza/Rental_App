@@ -127,7 +127,7 @@ class EditHub extends StatelessWidget {
                           alignment:Alignment.bottomCenter,
                           child: Padding(
                             padding: leftAndRightAndTopPadding(0.0,0.0,0.04),
-                            child: ButtonCustom(0,screenWidth*0.3, screenHight*0.06, BlocBuilder<MapHubsSupaBloc,MapStates>(
+                            child: ButtonCustom(0,screenWidth*0.96, screenHight*0.06, BlocBuilder<MapHubsSupaBloc,MapStates>(
                               builder:(context, state) {
                                 if(state is InitialState|| state is SuccessState){
                                   return const Text(edit,style: TextStyle(fontSize: 30,color: white),);
